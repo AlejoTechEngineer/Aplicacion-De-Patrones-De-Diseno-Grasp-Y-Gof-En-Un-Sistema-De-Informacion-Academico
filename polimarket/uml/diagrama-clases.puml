@@ -1,0 +1,98 @@
+@startuml PoliMarket_Clases
+
+skinparam classAttributeIconSize 0
+skinparam classFontSize 13
+skinparam classBackgroundColor #FAFAFA
+skinparam classBorderColor #555555
+skinparam arrowColor #333333
+skinparam shadowing false
+skinparam linetype ortho
+
+class RecursosHumanos {
+  - id : String
+  - responsable : String
+  + autorizarVendedor(vendedorId: String) : boolean
+  + revocarAutorizacion(vendedorId: String) : void
+  + listarVendedores() : List<Vendedor>
+}
+
+class Vendedor {
+  - id : String
+  - nombre : String
+  - email : String
+  - autorizado : boolean
+  + solicitarAutorizacion() : void
+  + realizarVenta(clienteId: String) : Venta
+  + consultarClientes() : List<Cliente>
+  + consultarProductos() : List<Producto>
+}
+
+class Cliente {
+  - id : String
+  - nombre : String
+  - email : String
+  - direccion : String
+  + getDatos() : Map<String, String>
+  + getHistorialCompras() : List<Venta>
+}
+
+class Producto {
+  - id : String
+  - nombre : String
+  - precio : double
+  - stock : int
+  + getDisponibilidad() : int
+  + actualizarStock(cantidad: int) : void
+}
+
+class Venta {
+  - id : String
+  - fecha : Date
+  - total : double
+  - estado : String
+  + registrarVenta() : void
+  + calcularTotal() : double
+  + getDetalle() : Map<String, Object>
+}
+
+class Bodega {
+  - id : String
+  - ubicacion : String
+  - capacidad : int
+  + verificarDisponibilidad(productoId: String) : int
+  + registrarEntrada(productoId: String, cantidad: int) : void
+  + registrarSalida(productoId: String, cantidad: int) : void
+  + solicitarReabastecimiento(productoId: String) : void
+}
+
+class Proveedor {
+  - id : String
+  - nombre : String
+  - contacto : String
+  - telefono : String
+  + registrarProducto(producto: Producto) : void
+  + getProductosSuministrados() : List<Producto>
+  + solicitarPedido(productoId: String, cantidad: int) : void
+}
+
+class Entrega {
+  - id : String
+  - fecha : Date
+  - estado : String
+  - direccionDestino : String
+  + registrarEntrega() : void
+  + consultarPedidosPendientes() : List<Venta>
+  + confirmarEntrega(entregaId: String) : void
+  + registrarSalidaBodega(productoId: String, cantidad: int) : void
+}
+
+RecursosHumanos "1" --> "0..*" Vendedor : autoriza >
+Vendedor "1" --> "0..*" Venta : realiza >
+Venta "0..*" --> "1" Cliente : pertenece a >
+Venta "1..*" --> "1..*" Producto : incluye >
+Venta ..> Bodega : <<consulta>>
+Bodega "1" --> "0..*" Proveedor : registra >
+Entrega ..> Venta : <<consulta>>
+Entrega ..> Bodega : <<registra salida>>
+
+@enduml

@@ -1,0 +1,92 @@
+@startuml PoliMarket_Componentes
+
+skinparam componentStyle uml2
+skinparam backgroundColor #FFFFFF
+skinparam componentBackgroundColor #FAFAFA
+skinparam componentBorderColor #555555
+skinparam arrowColor #333333
+skinparam shadowing false
+skinparam linetype ortho
+skinparam defaultFontSize 12
+
+' ══════════════════════════════════════════════════
+' CLIENTES
+' ══════════════════════════════════════════════════
+package "Clientes" {
+  [Cliente Web (API REST)]
+  [Cliente CLI]
+}
+
+' ══════════════════════════════════════════════════
+' RECURSOS HUMANOS
+' ══════════════════════════════════════════════════
+package "Recursos Humanos" {
+  [ComponenteAutorizacion]
+  [ComponenteGestionVendedores]
+}
+
+' ══════════════════════════════════════════════════
+' VENTAS
+' ══════════════════════════════════════════════════
+package "Ventas" {
+  [ComponenteRegistroVentas]
+  [ComponenteConsultaVentas]
+}
+
+' ══════════════════════════════════════════════════
+' BODEGA
+' ══════════════════════════════════════════════════
+package "Bodega" {
+  [ComponenteInventario]
+  [ComponenteReabastecimiento]
+}
+
+' ══════════════════════════════════════════════════
+' PROVEEDORES
+' ══════════════════════════════════════════════════
+package "Proveedores" {
+  [ComponenteGestionProveedores]
+  [ComponentePedidos]
+}
+
+' ══════════════════════════════════════════════════
+' ENTREGAS
+' ══════════════════════════════════════════════════
+package "Entregas" {
+  [ComponenteGestionEntregas]
+  [ComponenteLogistica]
+}
+
+' ══════════════════════════════════════════════════
+' RELACIONES CLIENTES
+' ══════════════════════════════════════════════════
+[Cliente Web (API REST)] --> [ComponenteRegistroVentas]
+[Cliente Web (API REST)] --> [ComponenteAutorizacion]
+[Cliente CLI] --> [ComponenteRegistroVentas]
+[Cliente CLI] --> [ComponenteInventario]
+
+' ══════════════════════════════════════════════════
+' RELACIONES ENTRE COMPONENTES
+' ══════════════════════════════════════════════════
+
+' RRHH
+[ComponenteAutorizacion] --> [ComponenteGestionVendedores]
+
+' Ventas
+[ComponenteRegistroVentas] --> [ComponenteConsultaVentas]
+[ComponenteRegistroVentas] --> [ComponenteAutorizacion]
+[ComponenteRegistroVentas] --> [ComponenteInventario]
+
+' Bodega
+[ComponenteInventario] --> [ComponenteReabastecimiento]
+
+' Proveedores
+[ComponenteReabastecimiento] --> [ComponentePedidos]
+[ComponenteGestionProveedores] --> [ComponenteInventario]
+
+' Entregas
+[ComponenteGestionEntregas] --> [ComponenteLogistica]
+[ComponenteLogistica] --> [ComponenteInventario]
+[ComponenteLogistica] --> [ComponenteConsultaVentas]
+
+@enduml

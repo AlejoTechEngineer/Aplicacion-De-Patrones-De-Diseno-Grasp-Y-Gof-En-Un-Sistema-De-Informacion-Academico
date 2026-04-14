@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PoliMarket — Sistema de Gestión</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0f14;
+      --surface:   #151820;
+      --border:    #252a36;
+      --accent:    #f0c040;
+      --accent2:   #4af0a0;
+      --danger:    #f05060;
+      --text:      #e8eaf0;
+      --muted:     #6b7280;
+      --mono:      'DM Mono', monospace;
+      --sans:      'Syne', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      grid-template-rows: auto 1fr;
+    }
+
+    /* ── HEADER ── */
+    header {
+      grid-column: 1 / -1;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo-mark {
+      width: 36px; height: 36px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: grid; place-items: center;
+      font-weight: 800; font-size: 18px; color: #000;
+    }
+    header h1 { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
+    header span { font-size: 12px; color: var(--muted); font-family: var(--mono); margin-left: auto; }
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent2);
+      box-shadow: 0 0 6px var(--accent2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    /* ── SIDEBAR ── */
+    nav {
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 24px 0;
+    }
+    nav .section-label {
+      font-size: 10px; letter-spacing: 2px; color: var(--muted);
+      padding: 0 20px 8px; text-transform: uppercase; font-family: var(--mono);
+    }
+    nav button {
+      width: 100%; text-align: left;
+      background: none; border: none; cursor: pointer;
+      padding: 10px 20px;
+      color: var(--muted);
+      font-family: var(--sans); font-size: 13px; font-weight: 600;
+      display: flex; align-items: center; gap: 10px;
+      transition: all .15s;
+      border-left: 3px solid transparent;
+    }
+    nav button:hover { color: var(--text); background: rgba(255,255,255,.03); }
+    nav button.active {
+      color: var(--accent); border-left-color: var(--accent);
+      background: rgba(240,192,64,.06);
+    }
+    nav .icon { font-size: 16px; width: 20px; text-align: center; }
+    nav hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+    /* ── MAIN ── */
+    main {
+      padding: 32px;
+      overflow-y: auto;
+    }
+
+    .panel { display: none; }
+    .panel.active { display: block; animation: fadeIn .2s ease; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
+
+    .panel-title {
+      font-size: 26px; font-weight: 800; letter-spacing: -1px;
+      margin-bottom: 6px;
+    }
+    .panel-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; font-family: var(--mono); }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 13px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 18px; font-family: var(--mono);
+    }
+
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media(max-width:700px){ .grid2{grid-template-columns:1fr} }
+
+    /* ── FORM CONTROLS ── */
+    label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; font-family: var(--mono); }
+    input, select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: var(--text);
+      font-family: var(--mono); font-size: 13px;
+      margin-bottom: 14px;
+      transition: border-color .15s;
+    }
+    input:focus, select:focus {
+      outline: none; border-color: var(--accent);
+    }
+    select option { background: var(--surface); }
+
+    /* ── BUTTONS ── */
+    .btn {
+      padding: 10px 22px;
+      border: none; border-radius: 8px; cursor: pointer;
+      font-family: var(--sans); font-size: 13px; font-weight: 700;
+      transition: all .15s; letter-spacing: .3px;
+    }
+    .btn-primary { background: var(--accent); color: #000; }
+    .btn-primary:hover { background: #ffd060; transform: translateY(-1px); }
+    .btn-danger  { background: var(--danger); color: #fff; }
+    .btn-danger:hover  { opacity:.85; }
+    .btn-ghost {
+      background: transparent; border: 1px solid var(--border); color: var(--text);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── RESPONSE BOX ── */
+    .response {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-family: var(--mono); font-size: 12px;
+      line-height: 1.7;
+      display: none;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .response.ok    { background: rgba(74,240,160,.08); border: 1px solid rgba(74,240,160,.25); color: var(--accent2); }
+    .response.error { background: rgba(240,80,96,.08);  border: 1px solid rgba(240,80,96,.25);  color: var(--danger); }
+
+    /* ── TABLES ── */
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th {
+      text-align: left; padding: 10px 14px;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 1px;
+      color: var(--muted); border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+    }
+    td { padding: 12px 14px; border-bottom: 1px solid rgba(37,42,54,.7); }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,.02); }
+
+    .badge {
+      display: inline-block; padding: 3px 10px; border-radius: 20px;
+      font-size: 11px; font-family: var(--mono); font-weight: 500;
+    }
+    .badge-ok      { background: rgba(74,240,160,.15); color: var(--accent2); }
+    .badge-pending { background: rgba(240,192,64,.15); color: var(--accent); }
+    .badge-no      { background: rgba(240,80,96,.15);  color: var(--danger); }
+
+    /* ── STAT CARDS ── */
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 24px; }
+    @media(max-width:800px){ .stats{grid-template-columns:repeat(2,1fr)} }
+    .stat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px;
+    }
+    .stat-label { font-size: 11px; color: var(--muted); font-family: var(--mono); letter-spacing: 1px; text-transform:uppercase; margin-bottom: 8px; }
+    .stat-value { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
+    .stat-value.yellow { color: var(--accent); }
+    .stat-value.green  { color: var(--accent2); }
+    .stat-value.red    { color: var(--danger); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">P</div>
+  <h1>PoliMarket</h1>
+  <span>Sistema de Gestión Empresarial v1.0</span>
+  <div class="status-dot" title="Servidor activo"></div>
+</header>
+
+<nav>
+  <div class="section-label">Módulos</div>
+  <button class="active" onclick="showPanel('dashboard', this)">
+    <span class="icon">◈</span> Dashboard
+  </button>
+  <hr>
+  <div class="section-label">Recursos Humanos</div>
+  <button onclick="showPanel('rrhh', this)">
+    <span class="icon">👤</span> Vendedores
+  </button>
+  <hr>
+  <div class="section-label">Operaciones</div>
+  <button onclick="showPanel('ventas', this)">
+    <span class="icon">🛒</span> Ventas
+  </button>
+  <button onclick="showPanel('bodega', this)">
+    <span class="icon">📦</span> Bodega
+  </button>
+  <button onclick="showPanel('entregas', this)">
+    <span class="icon">🚚</span> Entregas
+  </button>
+</nav>
+
+<main>
+
+  <!-- ── DASHBOARD ── -->
+  <div id="panel-dashboard" class="panel active">
+    <div class="panel-title">Dashboard</div>
+    <div class="panel-sub">// Estado general del sistema</div>
+    <div class="stats" id="stats-container">
+      <div class="stat-card"><div class="stat-label">Vendedores</div><div class="stat-value yellow" id="st-vendedores">—</div></div>
+      <div class="stat-card"><div class="stat-label">Productos</div><div class="stat-value green"  id="st-productos">—</div></div>
+      <div class="stat-card"><div class="stat-label">Ventas</div><div class="stat-value yellow" id="st-ventas">—</div></div>
+      <div class="stat-card"><div class="stat-label">Entregas Pend.</div><div class="stat-value red" id="st-entregas">—</div></div>
+    </div>
+    <div class="card">
+      <h3>Inventario Rápido</h3>
+      <div class="table-wrap">
+        <table id="tbl-inventario">
+          <thead><tr><th>ID</th><th>Producto</th><th>Precio</th><th>Stock</th><th>Estado</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RRHH ── -->
+  <div id="panel-rrhh" class="panel">
+    <div class="panel-title">Recursos Humanos</div>
+    <div class="panel-sub">// RF1 — Gestión de autorizaciones</div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Autorizar Vendedor</h3>
+        <label>ID del Vendedor</label>
+        <select id="rrhh-vendedor-id">
+          <option value="V001">V001 — Carlos Ruiz</option>
+          <option value="V002">V002 — Ana Gómez</option>
+        </select>
+        <button class="btn btn-primary" onclick="autorizarVendedor()">Autorizar ✓</button>
+        <button class="btn btn-danger" style="margin-left:8px" onclick="revocarVendedor()">Revocar ✗</button>
+        <div id="rrhh-resp" class="response"></div>
+      </div>
+      <div class="card">
+        <h3>Estado de Vendedores</h3>
+        <div class="table-wrap">
+          <table id="tbl-vendedores">
+            <thead><tr><th>ID</th><th>Nombre</th><th>Estado</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <br>
+        <button class="btn btn-ghost" onclick="cargarVendedores()">↻ Actualizar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── VENTAS ── -->
+  <div id="panel-ventas" class="panel">
+    <div class="panel-title">Ventas</div>
+    <div class="panel-sub">// RF2 — Registro de ventas</div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Nueva Venta</h3>
+        <label>ID Vendedor</label>
+        <select id="venta-vendedor">
+          <option value="V001">V001 — Carlos Ruiz</option>
+          <option value="V002">V002 — Ana Gómez</option>
+        </select>
+        <label>ID Cliente</label>
+        <select id="venta-cliente">
+          <option value="C001">C001 — Juan Pérez</option>
+          <option value="C002">C002 — Ana Torres</option>
+        </select>
+        <label>Productos (IDs separados por coma)</label>
+        <input type="text" id="venta-productos" placeholder="P001, P002" />
+        <button class="btn btn-primary" onclick="registrarVenta()">Registrar Venta</button>
+        <div id="ventas-resp" class="response"></div>
+      </div>
+      <div class="card">
+        <h3>Historial de Ventas</h3>
+        <div class="table-wrap">
+          <table id="tbl-ventas">
+            <thead><tr><th>ID</th><th>Vendedor</th><th>Cliente</th><th>Total</th><th>Estado</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <br>
+        <button class="btn btn-ghost" onclick="cargarVentas()">↻ Actualizar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BODEGA ── -->
+  <div id="panel-bodega" class="panel">
+    <div class="panel-title">Bodega</div>
+    <div class="panel-sub">// RF3 & RF4 — Inventario y reabastecimiento</div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Verificar Disponibilidad</h3>
+        <label>Producto</label>
+        <select id="bodega-producto-disp">
+          <option value="P001">P001 — Laptop HP</option>
+          <option value="P002">P002 — Mouse Logitech</option>
+          <option value="P003">P003 — Teclado Mecánico</option>
+        </select>
+        <button class="btn btn-primary" onclick="verificarDisponibilidad()">Consultar Stock</button>
+        <div id="bodega-disp-resp" class="response"></div>
+      </div>
+      <div class="card">
+        <h3>Solicitar Reabastecimiento</h3>
+        <label>Producto</label>
+        <select id="reb-producto">
+          <option value="P001">P001 — Laptop HP</option>
+          <option value="P002">P002 — Mouse Logitech</option>
+          <option value="P003">P003 — Teclado Mecánico</option>
+        </select>
+        <label>Proveedor</label>
+        <select id="reb-proveedor">
+          <option value="PR001">PR001 — TechSupply</option>
+          <option value="PR002">PR002 — DigitalParts</option>
+        </select>
+        <label>Cantidad</label>
+        <input type="number" id="reb-cantidad" value="10" min="1" />
+        <button class="btn btn-primary" onclick="solicitarReabastecimiento()">Solicitar</button>
+        <div id="reb-resp" class="response"></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Inventario Completo</h3>
+      <div class="table-wrap">
+        <table id="tbl-bodega">
+          <thead><tr><th>ID</th><th>Producto</th><th>Precio</th><th>Stock</th><th>Estado</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <br>
+      <button class="btn btn-ghost" onclick="cargarInventario()">↻ Actualizar</button>
+    </div>
+  </div>
+
+  <!-- ── ENTREGAS ── -->
+  <div id="panel-entregas" class="panel">
+    <div class="panel-title">Entregas</div>
+    <div class="panel-sub">// RF5 — Gestión de despachos</div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Registrar Entrega</h3>
+        <label>ID de Venta</label>
+        <input type="text" id="entrega-venta-id" placeholder="VTA-001" />
+        <button class="btn btn-primary" onclick="registrarEntrega()">Confirmar Entrega</button>
+        <div id="entregas-resp" class="response"></div>
+      </div>
+      <div class="card">
+        <h3>Pedidos Pendientes</h3>
+        <div class="table-wrap">
+          <table id="tbl-pendientes">
+            <thead><tr><th>Venta ID</th><th>Cliente</th><th>Total</th><th>Acción</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <br>
+        <button class="btn btn-ghost" onclick="cargarPendientes()">↻ Actualizar</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Historial de Entregas</h3>
+      <div class="table-wrap">
+        <table id="tbl-entregas">
+          <thead><tr><th>ID</th><th>Venta</th><th>Fecha</th><th>Estado</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const API = 'http://localhost:3000';
+
+  // ── Navegación ──
+  function showPanel(name, btn) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + name).classList.add('active');
+    btn.classList.add('active');
+    if (name === 'dashboard') cargarDashboard();
+    if (name === 'rrhh')      cargarVendedores();
+    if (name === 'ventas')    cargarVentas();
+    if (name === 'bodega')    cargarInventario();
+    if (name === 'entregas')  { cargarPendientes(); cargarEntregas(); }
+  }
+
+  // ── Helpers ──
+  function showResp(id, data) {
+    const el = document.getElementById(id);
+    el.style.display = 'block';
+    el.className = 'response ' + (data.ok ? 'ok' : 'error');
+    el.textContent = JSON.stringify(data, null, 2);
+  }
+
+  async function api(method, path, body) {
+    const opts = { method, headers: { 'Content-Type': 'application/json' } };
+    if (body) opts.body = JSON.stringify(body);
+    const r = await fetch(API + path, opts);
+    return r.json();
+  }
+
+  function badgeStock(stock) {
+    if (stock === 0)  return `<span class="badge badge-no">Sin stock</span>`;
+    if (stock < 5)    return `<span class="badge badge-pending">Stock bajo</span>`;
+    return `<span class="badge badge-ok">Disponible</span>`;
+  }
+
+  // ── Dashboard ──
+  async function cargarDashboard() {
+    try {
+      const [inv, ventas, pend] = await Promise.all([
+        api('GET', '/bodega/inventario'),
+        api('GET', '/ventas'),
+        api('GET', '/entregas/pendientes'),
+      ]);
+      document.getElementById('st-vendedores').textContent = '2';
+      document.getElementById('st-productos').textContent  = inv.productos?.length ?? '—';
+      document.getElementById('st-ventas').textContent     = ventas.ventas?.length ?? '—';
+      document.getElementById('st-entregas').textContent   = pend.ventas?.length   ?? '—';
+      const tbody = document.querySelector('#tbl-inventario tbody');
+      tbody.innerHTML = (inv.productos || []).map(p => `
+        <tr>
+          <td><code>${p.id}</code></td>
+          <td>${p.nombre}</td>
+          <td>$${p.precio.toLocaleString()}</td>
+          <td><strong>${p.stock}</strong></td>
+          <td>${badgeStock(p.stock)}</td>
+        </tr>`).join('');
+    } catch(e) { console.error(e); }
+  }
+
+  // ── RRHH ──
+  async function autorizarVendedor() {
+    const vendedorId = document.getElementById('rrhh-vendedor-id').value;
+    const data = await api('POST', '/rrhh/autorizar', { vendedorId });
+    showResp('rrhh-resp', data);
+    cargarVendedores();
+  }
+
+  async function revocarVendedor() {
+    const vendedorId = document.getElementById('rrhh-vendedor-id').value;
+    const data = await api('POST', '/rrhh/revocar', { vendedorId });
+    showResp('rrhh-resp', data);
+    cargarVendedores();
+  }
+
+  async function cargarVendedores() {
+    try {
+      const data = await api('GET', '/bodega/inventario'); // reutilizamos para demo
+      // Simulamos estado de vendedores consultando auth
+      const v1 = await api('POST', '/rrhh/autorizar', { vendedorId: 'V001_CHECK' });
+      const tbody = document.querySelector('#tbl-vendedores tbody');
+      tbody.innerHTML = `
+        <tr><td><code>V001</code></td><td>Carlos Ruiz</td><td><span class="badge badge-pending">Ver estado ↻</span></td></tr>
+        <tr><td><code>V002</code></td><td>Ana Gómez</td><td><span class="badge badge-pending">Ver estado ↻</span></td></tr>
+      `;
+    } catch(e) {}
+  }
+
+  // ── Ventas ──
+  async function registrarVenta() {
+    const vendedorId   = document.getElementById('venta-vendedor').value;
+    const clienteId    = document.getElementById('venta-cliente').value;
+    const productosRaw = document.getElementById('venta-productos').value;
+    const productosIds = productosRaw.split(',').map(p => p.trim()).filter(Boolean);
+    const data = await api('POST', '/ventas/registrar', { vendedorId, clienteId, productosIds });
+    showResp('ventas-resp', data);
+    cargarVentas();
+  }
+
+  async function cargarVentas() {
+    try {
+      const data = await api('GET', '/ventas');
+      const tbody = document.querySelector('#tbl-ventas tbody');
+      if (!data.ventas?.length) {
+        tbody.innerHTML = '<tr><td colspan="5" style="color:var(--muted);text-align:center">Sin ventas registradas</td></tr>';
+        return;
+      }
+      tbody.innerHTML = data.ventas.map(v => `
+        <tr>
+          <td><code>${v.id}</code></td>
+          <td>${v.vendedorId}</td>
+          <td>${v.clienteId}</td>
+          <td>$${v.total?.toLocaleString() ?? 0}</td>
+          <td><span class="badge badge-pending">${v.estado}</span></td>
+        </tr>`).join('');
+    } catch(e) {}
+  }
+
+  // ── Bodega ──
+  async function verificarDisponibilidad() {
+    const productoId = document.getElementById('bodega-producto-disp').value;
+    const data = await api('GET', `/bodega/disponibilidad/${productoId}`);
+    showResp('bodega-disp-resp', data);
+  }
+
+  async function solicitarReabastecimiento() {
+    const productoId  = document.getElementById('reb-producto').value;
+    const proveedorId = document.getElementById('reb-proveedor').value;
+    const cantidad    = parseInt(document.getElementById('reb-cantidad').value);
+    const data = await api('POST', '/bodega/reabastecer', { productoId, proveedorId, cantidad });
+    showResp('reb-resp', data);
+    cargarInventario();
+  }
+
+  async function cargarInventario() {
+    try {
+      const data = await api('GET', '/bodega/inventario');
+      const tbody = document.querySelector('#tbl-bodega tbody');
+      tbody.innerHTML = (data.productos || []).map(p => `
+        <tr>
+          <td><code>${p.id}</code></td>
+          <td>${p.nombre}</td>
+          <td>$${p.precio.toLocaleString()}</td>
+          <td><strong>${p.stock}</strong></td>
+          <td>${badgeStock(p.stock)}</td>
+        </tr>`).join('');
+    } catch(e) {}
+  }
+
+  // ── Entregas ──
+  async function registrarEntrega() {
+    const ventaId = document.getElementById('entrega-venta-id').value.trim();
+    const data = await api('POST', '/entregas/registrar', { ventaId });
+    showResp('entregas-resp', data);
+    cargarPendientes();
+    cargarEntregas();
+  }
+
+  async function cargarPendientes() {
+    try {
+      const data = await api('GET', '/entregas/pendientes');
+      const tbody = document.querySelector('#tbl-pendientes tbody');
+      if (!data.ventas?.length) {
+        tbody.innerHTML = '<tr><td colspan="4" style="color:var(--muted);text-align:center">Sin pedidos pendientes</td></tr>';
+        return;
+      }
+      tbody.innerHTML = data.ventas.map(v => `
+        <tr>
+          <td><code>${v.id}</code></td>
+          <td>${v.clienteId}</td>
+          <td>$${v.total?.toLocaleString() ?? 0}</td>
+          <td><button class="btn btn-primary" style="padding:5px 12px;font-size:12px"
+              onclick="entregarRapido('${v.id}')">Entregar</button></td>
+        </tr>`).join('');
+    } catch(e) {}
+  }
+
+  async function entregarRapido(ventaId) {
+    const data = await api('POST', '/entregas/registrar', { ventaId });
+    showResp('entregas-resp', data);
+    cargarPendientes();
+    cargarEntregas();
+  }
+
+  async function cargarEntregas() {
+    try {
+      const data = await api('GET', '/entregas');
+      const tbody = document.querySelector('#tbl-entregas tbody');
+      if (!data.entregas?.length) {
+        tbody.innerHTML = '<tr><td colspan="4" style="color:var(--muted);text-align:center">Sin entregas registradas</td></tr>';
+        return;
+      }
+      tbody.innerHTML = data.entregas.map(e => `
+        <tr>
+          <td><code>${e.id}</code></td>
+          <td><code>${e.ventaId}</code></td>
+          <td>${new Date(e.fecha).toLocaleString('es-CO')}</td>
+          <td><span class="badge badge-ok">${e.estado}</span></td>
+        </tr>`).join('');
+    } catch(e) {}
+  }
+
+  // ── Init ──
+  cargarDashboard();
+</script>
+</body>
+</html>

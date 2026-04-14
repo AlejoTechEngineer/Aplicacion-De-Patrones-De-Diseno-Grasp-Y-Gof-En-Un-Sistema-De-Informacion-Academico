@@ -1,0 +1,15 @@
+{
+  "name": "polimarket",
+  "version": "1.0.0",
+  "description": "Sistema de gestión PoliMarket — Arquitectura de componentes Node.js",
+  "main": "clients/web/servidor.js",
+  "scripts": {
+    "start:web": "node clients/web/servidor.js",
+    "start:cli": "node clients/cli/cliente-cli.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "author": "Alejandro De Mendoza",
+  "license": "ISC"
+}
