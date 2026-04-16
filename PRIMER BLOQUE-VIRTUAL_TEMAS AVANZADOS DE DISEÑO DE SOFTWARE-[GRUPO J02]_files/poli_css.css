@@ -1,0 +1,3117 @@
+/****************************************************************
+ * Universidad: POLI
+ * File: Styles
+ * Sub cuenta: 1
+ * Ultima Revision: 2025/11/05
+ *****************************************************************/
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+.file_download_btn {
+    display: none;
+}
+
+.file_download_btn {
+    display: none !important;
+}
+
+/***** MODALES ****/
+/*.whitex .close{
+    visibility: hidden;
+}*/
+/*.whitex .close:before {
+    content: "X";
+    visibility:visible;
+    padding: 1px 5px 3px!important;
+    line-height: 19px;
+    background: #182b51;
+    color: #fff;
+    margin: 5px;
+    border-radius: 22px;
+    position: relative;
+    right: 0;
+    display: block;
+}*/
+
+/************************************************** 
+PROPIEDADES DE LOS LINKS DE LA PAGINA DE LOGIN
+***************************************************/
+.ic-Login-footer .ic-Login-footer__links a,
+.ic-Login-footer .ic-Login-footer__links .menu-item__text {
+    display: none;
+}
+
+.ic-Login-footer .ic-Login-footer__logo-link {
+    display: none;
+}
+
+.footer-logo {
+    display: none;
+}
+
+.ic-app-footer__links a {
+    display: none;
+}
+
+.ic-Login-footer .ic-Login-footer__links {
+    text-align: center;
+}
+
+
+/************************************************** 
+OCULTAMIENTO DEL LOGO "By INSTRUCTURE" DEL LOGIN
+***************************************************/
+.ic-Login-footer .ic-Login-footer__logo-link {
+    display: none;
+}
+
+.ic-Login__actions .ic-Login__forgot,
+.ic-Login__actions .ic-Login__actions-timeout {
+    display: none;
+}
+
+/************************************************** 
+OCULTAMIENTO DEL LOGO "By INSTRUCTURE" DEL FOOTER
+***************************************************/
+#footer .footer-logo {
+    display: none;
+}
+
+/*.mi_botton{
+    
+
+position: absolute;
+    right: 50%;
+    top: 0;
+    z-index: 9999;
+    background: #0060ae;
+    color: #fff;
+    padding: 7px;
+    }*/
+
+
+/*centrar imagen y boton*/
+.ic-Login-header,
+.ic-Login-header .ic-Login-header__logo img,
+.ic-Login__actions,
+.ic-Login__actions .Button--login {
+    display: block;
+    margin: 0 auto;
+}
+
+/*#questions .question_name .answer_arrow,#questions .question_points_holder .user_points ,#questions .quiz_comment{
+    display: none !important;
+}*/
+
+.courses .unstyled_list .clearfix .unenroll_link {
+    display: none;
+}
+
+
+
+/************************************************** 
+cargando mathjax
+***************************************************/
+.cargando-math {
+    font-size: 12px;
+    color: rgb(0, 96, 174);
+}
+
+/************************************************** 
+fin cargando mathjax
+***************************************************/
+
+/************************************************** 
+foros
+***************************************************/
+
+.replies {
+    padding-left: 7px;
+    border-left: solid #f2f2f2 16px;
+}
+
+.discussion-read-state-btn {
+    top: 32px;
+}
+
+div.entry-content {
+    padding-left: 0px !important;
+}
+
+/************************************************** 
+fin foros
+***************************************************/
+
+/************************************************** 
+TAV
+***************************************************/
+.cont_btn {
+    position: fixed;
+    float: right;
+    right: 0px;
+    width: 150px;
+    margin-top: 10%;
+}
+
+.c_btn_ {
+    color: #fff;
+    padding: 10px;
+    float: left;
+    margin-top: 5%;
+    width: 150px;
+    font-size: 20px;
+    text-align: right;
+    float: right;
+    box-shadow: 5px 5px #888;
+    font-weight: bold;
+}
+
+#bt1 {
+    background: #37C2F2
+}
+
+#bt1:hover {
+    width: 170px;
+    color: #fff;
+    text-decoration: none;
+}
+
+#bt2 {
+    background: #B23F73
+}
+
+#bt2:hover {
+    width: 170px;
+    color: #fff;
+    text-decoration: none;
+}
+
+#bt3 {
+    background: #F8C82C
+}
+
+#bt3:hover {
+    width: 170px;
+    color: #fff;
+    text-decoration: none;
+}
+
+#bt4 {
+    background: #59B200
+}
+
+#bt4:hover {
+    width: 170px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.c_btn_ a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/************************************************** 
+fin TAV
+***************************************************/
+
+/*calcular*/
+
+#assignments-not-weighted .ic-Form-control,
+#whatif-score-description {
+    display: none;
+}
+
+#course_allow_student_organized_groups {
+    display: none;
+}
+
+.profile_table .links a:nth-child(3),
+.profile_table .links a:nth-child(4) {
+    display: none;
+}
+
+
+.headerBar #new-discussion-btn {
+    display: none;
+}
+
+
+/*escenarios*/
+
+@charset "utf-8";
+/* CSS Document */
+
+
+/* --------------- Fonts --------------- */
+
+@font-face {
+    font-family: PoliBold;
+    src: url(https://canvas-rsc.ilumno.com/testilumno/prod/js/repositorio/js/components/poli/fonts_prueba/BRANDON_BLD.OTF);
+}
+
+@font-face {
+    font-family: PoliMedium;
+    src: url(https://canvas-rsc.ilumno.com/testilumno/prod/js/repositorio/js/components/poli/fonts_prueba/BRANDON_MED_0.OTF);
+}
+
+@font-face {
+    font-family: Brandon;
+    font-weight: 700;
+    font-style: bold;
+    src: url('https://canvas-rsc.ilumno.com/poli/prod/avatares/Fuente/Brandon_bld.otf') format("opentype")
+}
+
+/* @font-face {
+    font-family: "Brandon Grotesque";
+    src: url(https://canvas-rsc.ilumno.com/poli/prod/fonts/Brandon_Grotesque/Brandon_Grotesque_regular.otf);
+} */
+
+
+/* --------------- Colores globales --------------- */
+
+/*POLI azul claro*/
+.POLI_linea_header,
+.btnActividades,
+.btnIcono {
+    background-color: #2EA6CF !important;
+}
+
+.celestePoli {
+    color: #2EA6CF;
+}
+
+/*POLI azul marca*/
+.menu_header,
+.POLI_slogan,
+.POLI_copyright {
+    background-color: #10355A !important;
+}
+
+.azulPoli {
+    color: #10355A;
+}
+
+/*POLI naranja*/
+.orangePoli {
+    color: #FFAC2C;
+}
+
+/*POLI verde*/
+.greenPoli {
+    color: #A1CE44;
+}
+
+/*POLI magenta*/
+.magentaPoli {
+    color: #FD2E7F;
+}
+
+/*Gris claro*/
+.POLI_banner_header,
+.btnVideo .POLI_txt {
+    background-color: #EEEEEE !important;
+}
+
+/*Gris oscuro*/
+.POLI_btnAprendizaje {
+    background-color: #333333 !important;
+}
+
+/*negro*/
+.POLI_slogan_2,
+.btnVideo .POLI_txt {
+    color: #000000 !important;
+}
+
+/*blanco*/
+.menuMods li a,
+.POLI_btnAprendizaje {
+    color: #FFFFFF !important;
+}
+
+.btnActividades:hover {
+    background-color: #FFFFFF;
+    color: #000000 !important;
+}
+
+/* --------------- AULA VIRTUAL HEADER --------------- */
+
+
+.POLI_contenedorGeneral {
+    max-width: 1050px;
+    margin: 0 auto;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    min-width: 220px;
+}
+
+
+.POLI_linea_header {
+    border-bottom: 1px solid #fff;
+    height: 10px;
+    position: relative;
+    width: 100%;
+    top: 0px;
+    z-index: 100;
+}
+
+.POLI_banner_header {
+    width: 100%;
+    height: 100% !important;
+    min-height: 90px !important;
+    max-height: 170px !important;
+    position: relative;
+    z-index: 100;
+}
+
+.POLI_logo_header {
+    margin: 5px 10px;
+    width: 100%;
+    max-width: 431px !important;
+    min-width: 400px !important;
+    position: relative;
+    text-align: center;
+}
+
+.POLI_slogan_2 {
+    width: 96.5%;
+    position: relative;
+    font-family: PoliBold;
+    font-size: 16px;
+    text-align: right;
+    margin: 16px auto;
+    padding-right: 30px !important;
+}
+
+.menu_header {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    z-index: 100;
+    border-bottom: 1px solid #fff;
+}
+
+.menuMods li a {
+    font-family: PoliMedium !important;
+    text-decoration: none !important;
+}
+
+.bntMenu {
+
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/mov/imenu.png) !important;
+    width: 32px;
+    height: 16px;
+    margin: 10px 16px 16px 16px;
+    float: right;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* Nav SubMenu */
+@keyframes submenumotion {
+    from {
+        margin-top: 10px;
+        opacity: 0.5;
+    }
+
+    to {
+        margin-top: 14px;
+        opacity: 1;
+    }
+}
+
+.POLI_contenedorGeneral .navSub ul.menuMods {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.POLI_contenedorGeneral .navSub ul.menuMods>li {
+    padding-top: 14px;
+    height: 30px;
+}
+
+.POLI_contenedorGeneral .navSub ul.menuMods>li:hover {
+    background-color: #032546;
+}
+
+.POLI_contenedorGeneral .navSub ul.submenu {
+    color: white;
+    position: absolute;
+    background: #03a9f4;
+    margin-top: 14px;
+    margin-left: 0;
+    display: none;
+    opacity: 1;
+    transition: all .5s ease;
+    max-width: 150px;
+    padding: 0px !important;
+    padding-left: 3px;
+    min-width: 120px !important;
+    text-align: left !important;
+    margin-left: -27px !important;
+
+    animation-name: submenumotion;
+    animation-duration: .5s;
+}
+
+.POLI_contenedorGeneral .navSub ul.submenu li {
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    transition: all .3s ease;
+    text-transform: uppercase;
+    font-size: 12px !important;
+}
+
+.POLI_contenedorGeneral .navSub ul.submenu li a {
+    display: block;
+    border-bottom: 1px solid #2092ec;
+    padding: 10px 20px 10px 20px;
+    text-align: left !important;
+}
+
+.POLI_contenedorGeneral .navSub ul.submenu li a:hover {
+    background: #00355d;
+    border-left: 3px solid deeppink;
+    padding-left: 20px;
+}
+
+.POLI_contenedorGeneral .navSub ul.submenu li:last-child a {
+    border-bottom: none !important;
+}
+
+.POLI_contenedorGeneral .navSub ul.menuMods>li:last-child ul.submenu {
+    margin-left: -27px !important;
+}
+
+.POLI_contenedorGeneral .navSub ul.menuMods>li:hover ul.submenu,
+.POLI_contenedorGeneral .navSub ul.menuMods>li ul.submenu:hover {
+    display: block;
+    opacity: 1;
+}
+
+
+@media only screen and (max-width: 1100px) {
+    .POLI_contenedorGeneral .navSub .bntMenu {
+        margin: 16px 16px 16px 16px !important;
+    }
+
+    .POLI_contenedorGeneral .navSub div.btnsMods .cerrar {
+        padding: 10px 10px 6px !important;
+        line-height: 14px;
+        margin-left: -70px !important;
+        margin-top: -15px;
+        height: 15px;
+    }
+
+    .POLI_contenedorGeneral .navSub ul.menuMods>li {
+        padding-top: 14px;
+        height: auto !important;
+    }
+
+    .POLI_contenedorGeneral .navSub div.btnsMods .cerrar:hover {
+        color: #000;
+        background: #eee !important;
+    }
+
+    .POLI_contenedorGeneral .navSub div.btnsMods {
+        height: auto !important;
+        width: 250px;
+    }
+
+    .POLI_contenedorGeneral .navSub ul.menuMods>li:hover ul.submenu,
+    .POLI_contenedorGeneral .navSub ul.menuMods>li ul.submenu:hover {
+        display: contents !important;
+    }
+
+    .POLI_contenedorGeneral .navSub ul.submenu {
+        color: white;
+        position: relative;
+        background: transparent;
+        margin-top: 13px;
+        margin-left: 0;
+        display: none;
+        opacity: 1;
+        padding-left: 5px;
+        transition: all .5s ease;
+        max-width: 300px !important;
+    }
+
+    .POLI_contenedorGeneral .navSub ul.submenu li a {
+        display: block;
+        padding: 10px 10px 10px 10px;
+        border-bottom: 1px solid #333;
+        transition: all .5s ease;
+    }
+
+    .POLI_contenedorGeneral .navSub ul.menuMods>li:hover {
+        background: transparent !important;
+    }
+
+    .POLI_contenedorGeneral .navSub ul.submenu li:hover a {
+        background: transparent;
+        padding-left: 15px;
+        border-left: 1px solid deeppink !important;
+    }
+}
+
+/* END Nav SubMenu */
+
+/* --------------- AULA VIRTUAL BANNER --------------- */
+
+.bannerPrincipal {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto1.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipal_POLI {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto2.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaula3 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto3.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaula4 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto4.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaula5 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto5.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaula6 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto6.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaulaSB1 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/competencias_ciudadanas.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaulaSB2 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/razonamiento_cuantitativo.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaulaSB3 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/ingles_A1_A2.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaulaSB4 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/comunicacion_escrita.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaulaSB5 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/ingles_B1_B2.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaulaSB6 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/metafora_final.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bgAzul {
+    padding: 80px 0px !important;
+    background-color: transparent !important;
+    border-top: none !important;
+}
+
+.padding01 {
+    padding: 80px 50px !important;
+    background-color: #000000;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    /* For IE8 and earlier */
+}
+
+.sub_tit {
+    font-family: PoliMedium !important;
+    line-height: 32px;
+}
+
+h1 strong {
+    font-size: 36px;
+    font-family: PoliBold !important;
+    ;
+}
+
+span {
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.MathJax span {
+    font-size: 21px;
+    line-height: 20px;
+}
+
+.btnIcono {
+    border-radius: 3px;
+    padding: 10px 0px 0px 12px;
+    display: inline-block;
+    height: 24px;
+    text-align: right;
+}
+
+.btnVideo .POLI_txt {
+    font-size: 14px !important;
+    padding: 5px 9px 12px 9px !important;
+    font-family: PoliMedium !important;
+    margin-top: 4px !important;
+    max-height: 8px !important;
+}
+
+/* -.-.-.-.-.- Footer -.-.-.-.-.- */
+
+.POLI_cierre {
+    width: 100%;
+    height: 100px;
+    background-color: #000000;
+    border-top: solid 1px #FFFFFF;
+}
+
+.POLI_cierre_logo {
+    margin: 15px 0 0 15px;
+}
+
+.POLI_cierre_btn {
+    display: inline-block;
+    width: 14%;
+    height: 76px;
+    padding: 12px 8px;
+    background-color: #2EA6CF;
+    float: right;
+    border-left: solid 1px #FFF;
+    text-align: center;
+    line-height: 16px;
+
+}
+
+.POLI_cierre_btn2 {
+    display: inline-block;
+    width: 14%;
+    height: 76px;
+    padding: 12px 8px;
+    background-color: #FD2E7F;
+    float: right;
+    border-left: solid 1px #FFF;
+    text-align: center;
+    line-height: 16px;
+
+}
+
+
+.POLI_cierre_btn a {
+    font-family: PoliMedium;
+    font-size: 11px;
+    color: #FFFFFF;
+    text-decoration: none !important;
+    text-align: center;
+}
+
+.POLI_cierre_btn2 a {
+    font-family: PoliMedium;
+    font-size: 11px;
+    color: #FFFFFF;
+    text-decoration: none !important;
+    text-align: center;
+}
+
+
+.POLI_copyright {
+    text-align: center;
+    font-size: 11px;
+    padding: 5px 3px 5px 3px;
+    font-family: Arial !important;
+    color: #FFF;
+    border-top: solid 1px #FFFFFF;
+}
+
+.extraButtons {
+    display: none
+}
+
+
+@media only screen and (max-width: 1100px) {
+
+    .btnsMods {
+        /*display: none; */
+        background-color: #333333 !important;
+        height: 400px !important;
+    }
+
+    .POLI_cierre_logo {
+        margin: 15px 0 15px 15px;
+    }
+
+    .POLI_cierre {
+        width: 100%;
+        height: 400px;
+        background-color: #000000;
+        border-top: solid 1px #FFFFFF;
+    }
+
+    .POLI_cierre_btn {
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+        padding: 12px;
+        background-color: #2EA6CF;
+        float: right;
+        border-left: none;
+        border-bottom: solid 1px #FFF;
+        text-align: left;
+        line-height: 16px;
+
+    }
+
+    .POLI_cierre_btn2 {
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+        padding: 12px;
+        background-color: #FD2E7F;
+        float: right;
+        border-left: none;
+        border-bottom: solid 1px #FFF;
+        text-align: left;
+        line-height: 16px;
+
+    }
+
+    .bannerPrincipal.section.group .span_4_of_8:first-child {
+        display: none;
+    }
+
+    .brClose {
+        display: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+
+        .bannerPrincipal {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto1.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipal_POLI {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto2.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaula3 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto3.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaula4 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto4.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaula5 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto5.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaula6 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto6.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaulaSB1 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/competencias_ciudadanas.png);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaulaSB2 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/razonamiento_cuantitativo.png);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaulaSB3 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/ingles_A1_A2.png);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaula4 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/comunicacion_escrita.png);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaulaSB5 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/ingles_B1_B2.png);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaulaSB6 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/metafora_final.png);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .POLI_banner_header {
+            width: 100%;
+            height: 90px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .POLI_logo_header {
+            max-width: 431px !important;
+            min-width: 200px !important;
+            text-align: center !important;
+        }
+
+        .POLI_slogan_2 {
+            width: 96.5%;
+            position: relative;
+            font-family: PoliBold;
+            font-size: 14px;
+            text-align: right;
+            margin: 10px auto !important;
+            padding-right: 20px;
+        }
+
+        .menu_header {
+            padding-top: 10px !important;
+        }
+
+
+
+    }
+
+    @media only screen and (max-width: 680px) {
+
+        .POLI_banner_header {
+            width: 100%;
+            height: 158px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .POLI_logo_header {
+            max-width: 431px !important;
+            min-width: 100px !important;
+            text-align: center !important;
+
+        }
+
+        .POLI_slogan_2 {
+            text-align: center;
+            margin: 0px 0;
+            width: 96, 5%;
+            padding: 10px 15px 10px 15px;
+            background-color: #FFFFFF;
+            text-align: right !important;
+            padding-right: 20px !important;
+        }
+
+        .menu_header {
+            padding-top: 10px !important;
+        }
+
+    }
+
+
+    @media only screen and (max-width: 429px) {
+
+        .POLI_banner_header {
+            width: 100%;
+            height: 128px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .POLI_logo_header {
+            margin: 5px 0px;
+            max-width: 431px !important;
+            min-width: 100px !important;
+            text-align: center !important;
+        }
+
+        .POLI_slogan_2 {
+            text-align: center;
+            margin: 0px 0;
+            width: 92.5%;
+            padding: 10px 15px 10px 15px;
+            background-color: #FFFFFF;
+            text-align: right !important;
+            padding-right: 20px !important;
+        }
+
+    }
+}
+
+
+/* ************************************************************** 
+/* Estilos Plantilla 2023
+/* ************************************************************** */
+:root {
+    --poli-azul-1: #3fa9f5;
+    --poli-azul-2: #0F385A;
+    --poli-verde-1: #a6ce38;
+    --poli-verde-2: #88a828;
+    --poli-verde-3: #495916;
+    --poli-magenta-1: #E10064;
+
+    --blue-dark: #051E34;
+    --gris-soft: #EFEFEF;
+    --gris-middle: #CECECE;
+}
+
+body:not(.full-width):not(.outcomes):not(.body--login-confirmation):has(#plantilla_2023) .ic-Layout-wrapper {
+    max-width: 100%;
+}
+
+body:has(#plantilla_2023) #wiki_page_show .header-bar-outer-container:not(:has(.page-toolbar-end .edit-wiki)) {
+    display: none;
+}
+
+#plantilla_2023 {
+    overflow: hidden;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral {
+    max-width: 100%;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header {
+    background-color: var(--poli-azul-2) !important;
+    min-height: 70px !important;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .course_title {
+    padding: 0 1rem;
+    color: #FFF;
+    margin-top: 15px;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons {
+    padding: 0 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 0;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons a img {
+    height: 40px;
+    width: 40px;
+    margin: 0 5px;
+    display: none;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons a img:nth-child(1),
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons a:hover img:nth-child(2) {
+    display: block;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons a:hover img {
+    display: none;
+}
+
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer {
+    color: #FFF;
+    background-color: var(--poli-verde-1);
+    width: 100%;
+    display: flex;
+    min-height: 70px !important;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul {
+    list-style: none;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a {
+    color: #FFF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a .iconos {
+    width: 30px;
+    width: 25px;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a .texto {
+    margin: 0;
+    margin-left: 5px;
+    font-size: 12px;
+    font-size: .7em;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a:hover {
+    color: var(--poli-verde-3);
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a img {
+    display: none;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a img.logo_poli {
+    width: 70px;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a img:nth-child(1),
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icon-change a:hover img:nth-child(2) {
+    display: block;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icon-change a:hover img {
+    display: none;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.bg-verde-oscuro {
+    background: var(--poli-verde-2);
+    padding: 2px 5px;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_content_course {
+    min-height: 75vh;
+    display: flex;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_content_course.bg-course {
+    background-image: url(https://canvas-rsc.ilumno.com/poli/prod/img/bg_course_p2.jpg);
+    background-image: linear-gradient(67deg, rgba(15, 56, 90, 0.60) 0%, rgba(255, 255, 255, .9) 70%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 1) 100%), url(https://canvas-rsc.ilumno.com/poli/prod/img/bg_course_p2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_home_content_iframe {
+    height: 33vh;
+    width: 80%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: auto;
+    height: 50vh;
+    width: calc(100% - 50px);
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_home_content_iframe iframe {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#plantilla_2023 #content-unidades svg {
+    width: 100%;
+    height: auto;
+}
+
+#plantilla_2023 .hexagon_hover {
+    cursor: pointer;
+}
+
+#plantilla_2023 .hexagon_hover:hover .hex {
+    fill: var(--poli-magenta-1);
+}
+
+/* modal */
+#plantilla_2023_new_modal .fade {
+    opacity: 0;
+    transition: opacity .15s linear;
+}
+
+#plantilla_2023_new_modal .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+}
+
+#plantilla_2023_new_modal .modal {
+    z-index: 1072;
+}
+
+#plantilla_2023_new_modal .fade.show {
+    opacity: 1;
+    display: block;
+}
+
+#plantilla_2023_new_modal .modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* ----------------- */
+#plantilla_2023_new_modal .modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 0.5rem;
+    pointer-events: none;
+    max-width: 100%;
+}
+
+#plantilla_2023_new_modal .modal-dialog-centered {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: calc(100% - (0.5rem * 2));
+}
+
+@media (min-width: 576px) {
+    #plantilla_2023_new_modal .modal-dialog {
+        max-width: 70%;
+        margin: 1.75rem auto;
+    }
+}
+
+@media (min-width: 576px) {
+    #plantilla_2023_new_modal .modal-dialog-centered {
+        min-height: calc(100% - (1.75rem * 2));
+    }
+}
+
+#plantilla_2023_new_modal .modal.fade .modal-dialog {
+    transition: -webkit-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+    -webkit-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+}
+
+#plantilla_2023_new_modal .modal.show .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+/* ----------------- */
+#plantilla_2023_new_modal .modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 0.3rem;
+    outline: 0;
+    background-color: transparent;
+    border: 0;
+}
+
+#plantilla_2023_new_modal .modal-content button.close {
+    top: -50px;
+    right: 5vw;
+    position: absolute;
+    opacity: 1;
+}
+
+#plantilla_2023_new_modal .modal-content button.close img {
+    width: 50px;
+}
+
+#plantilla_2023_new_modal .modal-content button.close:hover img {
+    display: none;
+}
+
+#plantilla_2023_new_modal .modal-content button.close:hover img:nth-child(2) {
+    display: block !important;
+}
+
+
+#plantilla_2023_new_modal .modal-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+
+#plantilla_2023_new_modal .modal-body {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+}
+
+#plantilla_2023_new_modal .bg-modal {
+    background: url(https://canvas-rsc.ilumno.com/poli/prod/img/bg_modal.png);
+    min-height: 50vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content {
+    width: 31vw;
+    height: 50vh;
+    height: calc(50vh - 50px);
+    margin-left: 8vw;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content .modulo-header {
+    width: 100%;
+    border-bottom: 2px solid var(--poli-verde-1);
+    display: flex;
+    padding-bottom: 10px;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content .modulo-header .modulo-title {
+    padding: 0 20px;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content .modulo-header .modulo-title .modulo-title-1 {
+    font-weight: normal;
+    font-size: .8rem;
+    margin: 0;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content .modulo-header .modulo-title .modulo-title-2 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content .modulo-desc {
+    padding: 10px;
+    text-align: justify;
+    font-size: 90%;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content .modulo-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#plantilla_2023 .POLI-btn-close-right-side-wrapper {
+    background-color: #0f385a;
+    border-radius: 50%;
+    border: 0;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+}
+
+#plantilla_2023 .POLI-btn-close-right-side-wrapper:hover {
+    background-color: var(--poli-magenta-1) !important;
+}
+
+#plantilla_2023 .POLI-btn-close-right-side-wrapper img {
+    transition: all 0.5s ease 0s;
+}
+
+#plantilla_2023 .btn-verde-2023,
+#plantilla_2023_new_modal .btn-verde-2023 {
+    margin: 0 10px;
+    background-color: var(--poli-verde-1);
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 10px;
+    border: 0;
+    max-width: 130px;
+    font-size: .8em;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#plantilla_2023_new_modal .modal-footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+/* ----------------- */
+#plantilla_2023_new_modal .modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+}
+
+#plantilla_2023_new_modal .modal-backdrop {
+    z-index: 1071;
+}
+
+#plantilla_2023_new_modal .modal-backdrop.fade {
+    opacity: 0;
+}
+
+#plantilla_2023_new_modal .modal-backdrop.show {
+    opacity: .5;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .title-menu {
+    color: #de1537;
+    display: none;
+}
+
+#plantilla_2023 .btn-close-menu-secciones {
+    border-radius: 50%;
+    font-weight: bold;
+    color: #de1537;
+    padding: 5px 10px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+#plantilla_2023 .POLI-btn-menu-secciones,
+#plantilla_2023 .btn-close-menu-secciones,
+#plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades {
+    display: none;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icono-footer-accion {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--poli-verde-3);
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icono-footer-accion .texto {
+    color: var(--poli-verde-3);
+    margin: 0;
+    margin-left: 5px;
+    font-size: 12px;
+    font-size: .7em;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icono-footer-accion:hover .texto {
+    color: #FFF;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icono-footer-accion:hover img:nth-child(2) {
+    display: block;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icono-footer-accion:hover img {
+    display: none;
+}
+
+@media only screen and (max-width: 799px) {
+
+    #plantilla_2023 .POLI-btn-menu-secciones,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .title-menu {
+        display: block;
+    }
+
+    #plantilla_2023 .POLI-btn-close-right-side-wrapper {
+        display: none;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header {
+        height: 120px !important;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header div:nth-child(1).span_6_of_8 {
+        width: 70%;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header div:nth-child(2).span_2_of_8 {
+        width: 30%;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons {
+        width: 100%;
+        flex-wrap: wrap;
+        margin: 10px 0;
+        padding: 0;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons a {
+        margin: 5px 0;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul {
+        flex-direction: column;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li {
+        width: 100%;
+        height: 40px;
+        padding: 5px !important;
+        border-bottom: 2px solid #FFF;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.logo {
+        display: none;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a {
+        height: 100%;
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0 20px;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a .texto br {
+        display: none;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a .texto {
+        font-size: .9rem;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral:has(.div-unidades) {
+        /* display: none; */
+        overflow: unset;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades {
+        position: absolute;
+        overflow: auto;
+        top: 0;
+        right: -100%;
+        background-color: #333 !important;
+        color: #fff;
+        max-width: 70vw;
+        margin: 0 !important;
+        padding: 0 20px !important;
+        z-index: 900;
+        transition: all .8s ease;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .modulo-header .subitems-btn .modulo-title-2:after {
+        content: '';
+        background-image: url(https://canvas-rsc.ilumno.com/poli/prod/img/icon-chevron-right-normal-blanco.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+        margin-bottom: -4px;
+        margin-left: 5px;
+        /* transition: all .8s ease; */
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .subitems-content a {
+        background-color: transparent;
+        color: #FFF;
+        display: flex;
+        max-width: 100%;
+        justify-content: flex-start;
+        padding: 10px;
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .subitems-content.show .modulo-title.subitems-btn .modulo-title-2:after {
+        transform: rotate(90deg);
+    }
+
+    #plantilla_2023 .btn-close-menu-secciones,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .subitems-content.show .modulo-buttons.subitems-links {
+        display: block !important;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #content-unidades,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .modulo-desc,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .modulo-buttons,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .modulo-header .icon-modulo,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .modulo-header .modulo-title-1 {
+        display: none;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_content_course {
+        min-height: 50vh;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_home_content_iframe {
+        height: 30vh;
+        width: 90%;
+    }
+}
+
+/****************************************************************
+ * Estilos plantilla de cursos V3
+ * Fecha: 20-12-2023
+ * Developer: JMV
+ *****************************************************************/
+/*
+:root {
+    --max-width-frame: 100%;
+}
+
+#plantilla_v3 {
+    margin: auto;
+    max-width: var(--max-width-frame);
+    font-family: "Brandon Grotesque Bold", "Brandon Grotesque Medium", "Brandon Grotesque Regular";
+}
+
+#plantilla_v3 header {
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    max-width: var(--max-width-frame);
+    height: 90px;
+    background-color: #103759;
+    font-size: 40px;
+    font-family: "brandon-grotesque", serif;
+    font-weight: bold;
+}
+
+#plantilla_v3 .nombreMod {
+    width: auto;
+    margin-right: auto;
+    padding-left: 25px;
+}
+
+#plantilla_v3 section a:hover img {
+    color: #FAAF19;
+    opacity: 0.7;
+}
+
+#plantilla_v3 section a:hover {
+    opacity: 0.7;
+}
+
+#plantilla_v3 .contenedor_correo {
+    display: flex;
+    font-size: 14px;
+    place-items: center;
+    text-align: center;
+    margin-right: 20px;
+}
+
+#plantilla_v3 .iconCom {
+    width: 40px;
+    display: flex;
+    margin: auto;
+    padding: 10px 15px 5px 15px;
+}
+
+#plantilla_v3 .nav_exagonos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 742px;
+    width: 55%;
+    height: auto;
+}
+
+#plantilla_v3 .main {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: var(--max-width-frame);
+    height: 629px;
+    background-image: url("https://canvas-rsc.ilumno.com/poli/prod/plantilla_v3/IMG/Portada.png");
+    background-repeat: no-repeat;
+    text-align: center;
+    font-family: "brandon-grotesque", serif;
+    color: white;
+    margin: auto;
+}
+
+#plantilla_v3 .hexagon {
+    position: relative;
+    width: 160px;
+    height: 120px;
+    background: #103759;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    margin-inline-start: -25px;
+    margin-bottom: 25px;
+    padding-top: 10px;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+#plantilla_v3 .hexagon:hover {
+    background: #f9ae1b;
+}
+
+#plantilla_v3 .polipestana {
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+    background-color: #3FA9F5;
+    clip-path: polygon(31% 0, 100% 60%, 100% 100%, 0 100%, 0 60%);
+}
+
+#plantilla_v3 .divNav2 {
+    width: 60px;
+    height: 90px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: grid;
+    text-align: center;
+
+}
+
+#plantilla_v3 .iconHex {
+    display: flex;
+    width: calc(var(--hexa_w) * .5);
+    height: auto;
+    max-width: unset;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+#plantilla_v3 .hexIn_Ci {
+    background: #3FA9F5;
+}
+
+#plantilla_v3 .hexIn_Ci:hover {
+    background: #ee0379;
+}
+
+#plantilla_v3 .hexabajo {
+    margin-top: 180px;
+}
+
+
+#plantilla_v3 a {
+    color: white;
+    text-decoration-line: none;
+}
+
+#plantilla_v3 #footer {
+    display: flex;
+    background-color: #A6CE39;
+    max-width: var(--max-width-frame);
+    height: 74px;
+}
+
+#plantilla_v3 #footer a {
+    display: flex;
+    align-items: center;
+    color: #103759;
+    text-decoration-line: none;
+}
+
+#plantilla_v3 .btn_plataforma {
+    display: flex;
+    width: 150px;
+    height: 74px;
+    font-family: "brandon-grotesque", serif;
+    font-size: 12px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#plantilla_v3 .btn_plataforma:hover {
+    background-color: #C1DD74;
+}
+
+#plantilla_v3 .Icon_plataforma {
+    display: block;
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+
+#plantilla_v3 #logo-footer {
+    width: 200px;
+    margin-left: 20px;
+    margin-right: 70px;
+}
+
+#plantilla_v3 .contenedorVentana {
+    position: relative;
+    width: 100%;
+    height: 454px;
+    margin: auto;
+    width: 80%;
+}
+
+#plantilla_v3 .ventana_Borde {
+    background-color: #A6CE38;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 30%, 100% 70%, 90% 100%, 10% 100%, 0% 70%, 0% 30%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    height: 100%;
+    width: 100%;
+}
+
+#plantilla_v3 .ventana {
+    background-color: #103759;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 30%, 100% 70%, 90% 100%, 10% 100%, 0% 70%, 0% 30%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+}
+
+#plantilla_v3 .modal {
+    background-color: rgba(0, 0, 0, .8);
+    position: fixed !important;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 1s;
+    z-index: 100;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    top: -50px;
+    bottom: 0;
+}
+
+#plantilla_v3 article {
+    width: 80%;
+    height: auto;
+    margin: auto;
+
+}
+
+#plantilla_v3 .bannerUnidad {
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid #A6CE38;
+}
+
+#plantilla_v3 h1 {
+    font-size: 28px;
+    color: #FFFFFF;
+    margin-left: 10px;
+
+}
+
+#plantilla_v3 .Icon_Octagono {
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin-right: 10px;
+}
+
+#plantilla_v3 .Recursos_Octagono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+}
+
+#plantilla_v3 .bt_materiales {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #A6CE38;
+    width: 220px;
+    height: 65px;
+    margin-right: 15px;
+    border-radius: 15px;
+    color: #103759;
+    font-weight: bold;
+}
+
+#plantilla_v3 .bt_materiales:hover {
+    background: #FFFFFF;
+    align-items: center;
+}
+
+#plantilla_v3 p {
+    font-family: "Brandon Grotesque Regular";
+    font-size: 20px;
+    color: #FFFFFF;
+    line-height: 1.2em;
+}
+
+#plantilla_v3 .postit {
+    position: relative;
+    display: block;
+    width: 322px;
+    height: auto;
+    background-color: #F2EB99;
+    text-align: center;
+    color: #0F385A;
+}
+
+#plantilla_v3 .positBrillo {
+    position: relative;
+    width: auto;
+    height: 25px;
+    background-color: #F5F0B7;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+#plantilla_v3 .postit p {
+    position: relative;
+    display: block;
+    font-size: 18px;
+    color: #103759;
+    margin-top: -15px;
+    padding: 0 5px;
+}
+
+#plantilla_v3 .postit h3 {
+    margin-top: 5px;
+}
+
+#plantilla_v3 .punta {
+    position: absolute;
+    width: 20px;
+    height: 19px;
+    bottom: 0;
+    right: 0;
+    clip-path: inset(5% 20% 15% 10%);
+    background: linear-gradient(-45deg, #0F385A 50%, #DCC904 50%);
+    margin-right: -5px;
+    margin-bottom: -3px;
+}
+
+#plantilla_v3 .cerrar_modal {
+    position: absolute;
+    background-image: url("https://canvas-rsc.ilumno.com/poli/prod/plantilla_v3/SVG/Cerrar.svg");
+    background-repeat: no-repeat;
+    width: 49px;
+    height: 43px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+#plantilla_v3 .cerrar_modal:hover {
+    background-image: url("https://canvas-rsc.ilumno.com/poli/prod/plantilla_v3/SVG/Cerrar_Over.svg");
+    background-repeat: no-repeat;
+}
+
+#plantilla_v3 aside {
+
+    display: inline-block;
+    width: 500px;
+    width: 40%;
+    height: auto;
+}
+
+#plantilla_v3 iframe {
+    width: 100% !important;
+    height: 70% !important;
+    border: none;
+}
+
+#plantilla_v3 .ContenedorEXP {
+    display: flex;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#plantilla_v3 .experiencias {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 30%;
+    background: #FAAF19;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    min-height: 100px;
+}
+
+#plantilla_v3 .experiencias img {
+    width: 30px;
+    margin-bottom: 8px;
+}
+
+#plantilla_v3 .MiBook {
+    padding: 5px 25px;
+}
+
+#plantilla_v3 .experiencias:hover {
+    background: #103759;
+}
+
+body:not(.full-width):not(.outcomes):not(.body--login-confirmation):has(#plantilla_v3) .ic-Layout-wrapper {
+    max-width: 100%;
+}
+
+body:has(#plantilla_v3) .ic-Layout-contentMain {
+    padding: 36px 0px 48px 0px;
+}
+
+#plantilla_v3 .POLI_contenedorGeneral {
+    max-width: 100%;
+}
+
+#plantilla_v3 .POLI-btn-close-right-side-wrapper {
+    background-color: #0f385a;
+    border-radius: 50%;
+    border: 0;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+    line-height: normal;
+}
+
+#plantilla_v3 .POLI-btn-close-right-side-wrapper:hover {
+    background-color: #A6CE39 !important;
+}
+
+#plantilla_v3 .POLI-btn-close-right-side-wrapper img {
+    transition: all 0.5s ease 0s;
+}
+
+body:has(#plantilla_v3) .POLI-btn-close-right-side-wrapper img {
+    transform: rotateY(180deg);
+}
+
+body.with-right-side:has(#plantilla_v3) #right-side-wrapper {
+    display: none;
+}
+
+body:has(#plantilla_v3):not(.with-right-side) .POLI-btn-close-right-side-wrapper {
+    display: none !important;
+}
+
+body:has(#plantilla_v3) h1.page-title {
+    display: none;
+}
+
+#plantilla_v3 .nav_hexagonos_mobile {
+    display: none;
+}
+
+#plantilla_v3 .text-overflow-nowrap {
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+}
+
+#plantilla_v3 .collapse {
+    display: none;
+}
+
+#plantilla_v3 .collapse.show {
+    display: block;
+}
+
+#plantilla_v3 .hexagonos_content {
+    display: flex;
+    width: 55%;
+    align-items: center;
+}
+
+#plantilla_v3 .hexagonos {
+    --hexa_pts: 30;
+    --hexa_w: 10vw;
+    --hexa_separate_1: 17;
+    --hexa_separate_2: 8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc((var(--hexa_w) * 2) + 1vw);
+    position: relative;
+}
+
+#plantilla_v3 .hex {
+    height: var(--hexa_w);
+    width: calc(var(--hexa_w) + 2vw);
+    position: absolute;
+    background: #103759;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+#plantilla_v3 .hex:hover {
+    background-color: #f9ae1b;
+}
+
+#plantilla_v3 .hex a {
+    color: white;
+    text-decoration-line: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    font-size: calc(var(--hexa_w) / 100 * 12);
+}
+
+#plantilla_v3 .hex a img {
+    max-width: unset !important;
+    padding: 0 !important;
+    margin-bottom: 5px !important;
+    width: calc(var(--hexa_w) *.5) !important;
+    height: auto !important;
+}
+
+#plantilla_v3 .hexIn_Ci {
+    background: #3FA9F5;
+}
+
+#plantilla_v3 .hexIn_Ci:hover {
+    background: #ee0379;
+}
+
+#plantilla_v3 .hex1 {
+    transform: translate(calc((var(--hexa_w) / var(--hexa_pts) * 50) * -1), calc((var(--hexa_w) / var(--hexa_pts) * (var(--hexa_separate_1) + var(--hexa_separate_2))) * -1));
+}
+
+#plantilla_v3 .hex2 {
+    transform: translate(calc((var(--hexa_w) / var(--hexa_pts) * 50) * -1), calc((var(--hexa_w) / var(--hexa_pts) * (var(--hexa_separate_1) - var(--hexa_separate_2))) * 1));
+}
+
+#plantilla_v3 .hex3 {
+    transform: translate(calc((var(--hexa_w) / var(--hexa_pts) * var(--hexa_separate_1)) * -1), calc(var(--hexa_w) / var(--hexa_pts) * var(--hexa_separate_2) * -1));
+}
+
+#plantilla_v3 .hex4 {
+    transform: translate(calc((var(--hexa_w) / var(--hexa_pts) * var(--hexa_separate_1)) * 1), calc(var(--hexa_w) / var(--hexa_pts) * var(--hexa_separate_2) * 1));
+}
+
+#plantilla_v3 .hex5 {
+    transform: translate(calc((var(--hexa_w) / var(--hexa_pts) * 50) * 1), calc((var(--hexa_w) / var(--hexa_pts) * (var(--hexa_separate_1) - var(--hexa_separate_2))) * -1));
+}
+
+#plantilla_v3 .hex6 {
+    transform: translate(calc((var(--hexa_w) / var(--hexa_pts) * 50) * 1), calc((var(--hexa_w) / var(--hexa_pts) * (var(--hexa_separate_1) + var(--hexa_separate_2))) * 1));
+}
+
+#plantilla_v3 {
+    margin: auto;
+    width: var(--max-width-frame);
+    font-family: "Brandon Grotesque Bold", "Brandon Grotesque Medium", "Brandon Grotesque Regular";
+    line-height: 1em;
+}
+
+#plantilla_v3 .polipestana {
+    width: 100%;
+    height: 50px;
+    margin-top: -40px;
+    clip-path: polygon(31% 0, 100% 60%, 100% 100%, 0 100%, 0 60%);
+    display: block;
+}
+
+#plantilla_v3 .nav_recursos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--max-width-frame);
+    height: 250px;
+    margin-top: -5px;
+}
+
+#plantilla_v3 .color_M_Fundamental {
+    background-color: #FAAF19;
+}
+
+#plantilla_v3 .color_Complementos {
+    background-color: #A6CE38;
+}
+
+#plantilla_v3 .color_M_trabajo {
+    background-color: #3FA9F5;
+}
+
+#plantilla_v3 .contenedor_hexagon {
+    position: relative;
+    display: block;
+    width: 180px;
+    height: 100px;
+    background: #f2f2f2;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    margin-inline-start: 0;
+    margin-bottom: 50px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+#plantilla_v3 .enlace {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #103759;
+    padding: 50px 70px;
+    text-decoration: none;
+}
+
+#plantilla_v3 nav img {
+    max-width: 70px;
+    height: 70px;
+    padding: 10px 0;
+}
+
+#plantilla_v3 .contenedor_hexagon a:hover {
+    background: #103759;
+    color: #FFFFFF;
+}
+
+#plantilla_v3 .contenedor_hexagon a:hover img,
+#plantilla_v3 .enlace img:hover {
+    filter: invert(100%) hue-rotate(170deg);
+}
+
+#plantilla_v3 .ubic_recursos_arriba {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#plantilla_v3 .ubic_recursos_abajo {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 70px;
+}
+
+#plantilla_v3 .bg-center {
+    height: 55vh;
+    display: block;
+    background-color: #10305b;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#plantilla_v3 .pages.show .show-content {
+    padding: 0 12px 0 12px;
+}
+
+body:has(#plantilla_v3) .white-answer,
+body:has(#plantilla_v3) .whitex {
+    width: 98%;
+    left: 1%;
+}
+
+#plantilla_v3 .w100 {
+    width: 100%;
+}
+
+@media only screen and (max-width: 799px) {
+    #plantilla_v3 .POLI-btn-close-right-side-wrapper {
+        display: none;
+    }
+
+    #plantilla_v3 .nombreMod {
+        padding-left: 10px;
+        line-height: 35px;
+    }
+
+    #plantilla_v3 .contenedor_correo {
+        margin-right: 10px;
+    }
+
+    #plantilla_v3 a {
+        width: 100px;
+    }
+
+    #plantilla_v3 .nav_exagonos,
+    #plantilla_v3 .hexagonos_content {
+        display: none !important
+    }
+
+    #plantilla_v3 iframe {
+        height: 60% !important;
+    }
+
+    #plantilla_v3 .main {
+        height: 500px;
+    }
+
+    #plantilla_v3 #footer {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        background-color: #A6CE39;
+    }
+
+    #plantilla_v3 #footer #logo-footer {
+        display: none;
+    }
+
+    #plantilla_v3 .btn_plataforma {
+        width: 100%;
+        margin: 2px 0;
+        justify-content: start;
+        font-size: 16px;
+        font-weight: bold;
+        height: 45px;
+        background-color: #c3dc74;
+    }
+
+    #plantilla_v3 #footer a {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    #plantilla_v3 #footer a br {
+        display: none;
+    }
+
+    #plantilla_v3 .btn_plataforma2 {
+        display: flex;
+        font-family: "brandon-grotesque", serif;
+        align-items: center;
+        width: 100%;
+        margin: 2px 0;
+        justify-content: start;
+        font-size: 16px;
+        font-weight: bold;
+        height: 45px;
+        background-color: #103759;
+        padding: 10px 0;
+    }
+
+    #plantilla_v3 .btn_plataforma2.claro {
+        background-color: #41a8f5;
+    }
+
+    #plantilla_v3 .btn_plataforma2 a {
+        width: auto;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        padding-left: 20px;
+    }
+
+    #plantilla_v3 .btn_plataforma2 a img {
+        display: block;
+        width: 50px;
+        height: 50px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    #plantilla_v3 .btn_plataforma2:after {
+        content: "";
+        position: absolute;
+        right: 5px;
+        background-image: url(https://canvas-rsc.ilumno.com/poli/prod/plantilla_v3/SVG/btnRecursos/caret-right.svg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 40px;
+        width: 40px;
+    }
+
+    #plantilla_v3 .btn_plataforma2[aria-expanded="true"]:after {
+        transform: rotate(90deg);
+    }
+
+    #plantilla_v3 .nav_hexagonos_mobile {
+        display: block;
+    }
+
+    #plantilla_v3 .nav_hexagonos_mobile .contentido-unidad {
+        padding: 5px 10px;
+    }
+
+    #plantilla_v3 .nav_hexagonos_mobile .contentido-unidad p {
+        color: #000;
+    }
+
+    #plantilla_v3 .nav_hexagonos_mobile .contentido-unidad .opciones {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #plantilla_v3 .nav_hexagonos_mobile .contentido-unidad .postit {
+        margin: 10px 0;
+    }
+
+    #plantilla_v3 .bt_materiales {
+        width: 200px;
+        text-align: center;
+        height: 60px;
+        margin: 5px auto;
+        padding: 0 15px;
+    }
+
+    #plantilla_v3 .bg-center {
+        width: 100%;
+        background-size: contain;
+        height: 25vh;
+    }
+
+    #plantilla_v3 .nav_recursos {
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        padding-bottom: 30px;
+    }
+
+    #plantilla_v3 .contenedor_hexagon {
+        width: 150px;
+        height: 90px;
+        margin-bottom: 5px;
+    }
+
+    #plantilla_v3 .enlace {
+        padding: 0px 40px;
+    }
+
+    #plantilla_v3 nav img {
+        max-width: 50px;
+        height: auto;
+        padding: 10px 0 5px 0;
+    }
+
+    #plantilla_v3 .ubic_recursos_abajo {
+        margin-top: 15px;
+    }
+
+    #plantilla_v3 aside {
+        width: 100%;
+    }
+}
+*/
+
+/****************************************************************
+ * bootstrap
+ * Fecha: 2024-07-26
+ * Developer: JMV
+ *****************************************************************/
+.jmv-col-1,
+.jmv-col-2,
+.jmv-col-3,
+.jmv-col-4,
+.jmv-col-5,
+.jmv-col-6,
+.jmv-col-7,
+.jmv-col-8,
+.jmv-col-9,
+.jmv-col-10,
+.jmv-col-11,
+.jmv-col-12,
+.jmv-col,
+.jmv-col-auto,
+.jmv-col-sm-1,
+.jmv-col-sm-2,
+.jmv-col-sm-3,
+.jmv-col-sm-4,
+.jmv-col-sm-5,
+.jmv-col-sm-6,
+.jmv-col-sm-7,
+.jmv-col-sm-8,
+.jmv-col-sm-9,
+.jmv-col-sm-10,
+.jmv-col-sm-11,
+.jmv-col-sm-12,
+.jmv-col-sm,
+.jmv-col-sm-auto,
+.jmv-col-md-1,
+.jmv-col-md-2,
+.jmv-col-md-3,
+.jmv-col-md-4,
+.jmv-col-md-5,
+.jmv-col-md-6,
+.jmv-col-md-7,
+.jmv-col-md-8,
+.jmv-col-md-9,
+.jmv-col-md-10,
+.jmv-col-md-11,
+.jmv-col-md-12,
+.jmv-col-md,
+.jmv-col-md-auto,
+.jmv-col-lg-1,
+.jmv-col-lg-2,
+.jmv-col-lg-3,
+.jmv-col-lg-4,
+.jmv-col-lg-5,
+.jmv-col-lg-6,
+.jmv-col-lg-7,
+.jmv-col-lg-8,
+.jmv-col-lg-9,
+.jmv-col-lg-10,
+.jmv-col-lg-11,
+.jmv-col-lg-12,
+.jmv-col-lg,
+.jmv-col-lg-auto,
+.jmv-col-xl-1,
+.jmv-col-xl-2,
+.jmv-col-xl-3,
+.jmv-col-xl-4,
+.jmv-col-xl-5,
+.jmv-col-xl-6,
+.jmv-col-xl-7,
+.jmv-col-xl-8,
+.jmv-col-xl-9,
+.jmv-col-xl-10,
+.jmv-col-xl-11,
+.jmv-col-xl-12,
+.jmv-col-xl,
+.jmv-col-xl-auto {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.jmv-col-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%
+}
+
+.jmv-col-1 {
+    flex: 0 0 8.33333333%;
+    max-width: 8.33333333%
+}
+
+.jmv-col-2 {
+    flex: 0 0 16.66666667%;
+    max-width: 16.66666667%
+}
+
+.jmv-col-3 {
+    flex: 0 0 25%;
+    max-width: 25%
+}
+
+.jmv-col-4 {
+    flex: 0 0 33.33333333%;
+    max-width: 33.33333333%
+}
+
+.jmv-col-5 {
+    flex: 0 0 41.66666667%;
+    max-width: 41.66666667%
+}
+
+.jmv-col-6 {
+    flex: 0 0 50%;
+    max-width: 50%
+}
+
+.jmv-col-7 {
+    flex: 0 0 58.33333333%;
+    max-width: 58.33333333%
+}
+
+.jmv-col-8 {
+    flex: 0 0 66.66666667%;
+    max-width: 66.66666667%
+}
+
+.jmv-col-9 {
+    flex: 0 0 75%;
+    max-width: 75%
+}
+
+.jmv-col-10 {
+    flex: 0 0 83.33333333%;
+    max-width: 83.33333333%
+}
+
+.jmv-col-11 {
+    flex: 0 0 91.66666667%;
+    max-width: 91.66666667%
+}
+
+.jmv-col-12 {
+    flex: 0 0 100%;
+    max-width: 100%
+}
+
+.jmv-bold {
+    font-weight: bold !important;
+}
+
+.jmv-d-none {
+    display: none !important
+}
+
+.jmv-d-inline {
+    display: inline !important
+}
+
+.jmv-d-inline-block {
+    display: inline-block !important
+}
+
+.jmv-d-block {
+    display: block !important
+}
+
+.jmv-d-table {
+    display: table !important
+}
+
+.jmv-d-table-row {
+    display: table-row !important
+}
+
+.jmv-d-table-cell {
+    display: table-cell !important
+}
+
+.jmv-d-flex {
+    display: flex !important
+}
+
+.jmv-d-inline-flex {
+    display: inline-flex !important
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+@media (min-width: 576px) {
+    .jmv-d-sm-none {
+        display: none !important
+    }
+
+    .jmv-d-sm-inline {
+        display: inline !important
+    }
+
+    .jmv-d-sm-inline-block {
+        display: inline-block !important
+    }
+
+    .jmv-d-sm-block {
+        display: block !important
+    }
+
+    .jmv-d-sm-table {
+        display: table !important
+    }
+
+    .jmv-d-sm-table-row {
+        display: table-row !important
+    }
+
+    .jmv-d-sm-table-cell {
+        display: table-cell !important
+    }
+
+    .jmv-d-sm-flex {
+        display: flex !important
+    }
+
+    .jmv-d-sm-inline-flex {
+        display: inline-flex !important
+    }
+}
+
+@media (min-width: 768px) {
+    .jmv-d-md-none {
+        display: none !important
+    }
+
+    .jmv-d-md-inline {
+        display: inline !important
+    }
+
+    .jmv-d-md-inline-block {
+        display: inline-block !important
+    }
+
+    .jmv-d-md-block {
+        display: block !important
+    }
+
+    .jmv-d-md-table {
+        display: table !important
+    }
+
+    .jmv-d-md-table-row {
+        display: table-row !important
+    }
+
+    .jmv-d-md-table-cell {
+        display: table-cell !important
+    }
+
+    .jmv-d-md-flex {
+        display: flex !important
+    }
+
+    .jmv-d-md-inline-flex {
+        display: inline-flex !important
+    }
+}
+
+@media (min-width: 992px) {
+    .jmv-d-lg-none {
+        display: none !important
+    }
+
+    .jmv-d-lg-inline {
+        display: inline !important
+    }
+
+    .jmv-d-lg-inline-block {
+        display: inline-block !important
+    }
+
+    .jmv-d-lg-block {
+        display: block !important
+    }
+
+    .jmv-d-lg-table {
+        display: table !important
+    }
+
+    .jmv-d-lg-table-row {
+        display: table-row !important
+    }
+
+    .jmv-d-lg-table-cell {
+        display: table-cell !important
+    }
+
+    .jmv-d-lg-flex {
+        display: flex !important
+    }
+
+    .jmv-d-lg-inline-flex {
+        display: inline-flex !important
+    }
+}
+
+@media (min-width: 1200px) {
+    .jmv-d-xl-none {
+        display: none !important
+    }
+
+    .jmv-d-xl-inline {
+        display: inline !important
+    }
+
+    .jmv-d-xl-inline-block {
+        display: inline-block !important
+    }
+
+    .jmv-d-xl-block {
+        display: block !important
+    }
+
+    .jmv-d-xl-table {
+        display: table !important
+    }
+
+    .jmv-d-xl-table-row {
+        display: table-row !important
+    }
+
+    .jmv-d-xl-table-cell {
+        display: table-cell !important
+    }
+
+    .jmv-d-xl-flex {
+        display: flex !important
+    }
+
+    .jmv-d-xl-inline-flex {
+        display: inline-flex !important
+    }
+}
+
+#ajax_loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, .8);
+    z-index: 9999;
+}
+
+/****************************************************************
+* Al abrir la caja de comentarios queda oculto el boton de entrega de tareas
+* Fecha: 28-06-2024
+* Developer: JMV
+*****************************************************************/
+body:has(#comments-tray) #assignments-student-footer {
+    max-width: calc(100% - 420px - 110px);
+}
+
+/****************************************************************
+ * Popup Emergente en el HOME
+ * Fecha: 2024-10-17
+ * Developer: JMV
+ *****************************************************************/
+
+.jmv_modal {
+    background-color: rgba(0, 0, 0, .8);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 1s;
+    z-index: 101;
+    overflow-y: auto;
+}
+
+.jmv_modal .jmv_btn_close_modal {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    --wd: 30px;
+    width: var(--wd);
+    height: var(--wd);
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 50%;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: normal;
+    text-decoration: none;
+    border: 2px solid #FFFFFF;
+}
+
+.jmv_modal .jmv_btn_close_modal:hover {
+    background-color: #12121280;
+}
+
+body #popup:target,
+body #supletorios:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+body:has(#popup:target),
+body:has(#supletorios:target) {
+    overflow: hidden;
+}
+
+/****************************************************************
+* Ocultar boton importar contenido
+* Fecha: 14-11-2023
+* Developer: JMV
+* PENDIENTE APROBACION PARA PASAR A PRODUCCION
+*****************************************************************/
+/* #course_form div.coursesettings .CourseAvailabilityOptions.disabled input[type=text],
+    #course_form div.coursesettings .CourseAvailabilityOptions.disabled span,
+    #course_form div.coursesettings .CourseAvailabilityOptions.disabled label{
+        pointer-events: none !important;
+        cursor: not-allowed !important;
+}
+#course_form div.coursesettings .CourseAvailabilityOptions.disabled span:has(> span > input[type=text]){
+    background-color: lightgray !important;
+} */
+
+/****************************************************************
+ * Estilos Content Full Screen
+ * Fecha: 2025-03-21
+ * Developer: JMV
+ *****************************************************************/
+
+body:not(.edit):has(.ContentFullScreen) {
+    overflow: hidden;
+}
+
+body:not(.edit) .ContentFullScreen {
+    z-index: 3;
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    height: 100vh !important;
+    left: 54px;
+    background-color: #fff;
+}
+
+body:not(.edit):has(.ContentFullScreen) .right-of-crumbs {
+    position: absolute;
+    top: 110px;
+    right: 25px;
+    zoom: .8;
+}
+
+@media only screen and (max-width: 775px) {
+    body:not(.edit) .ContentFullScreen {
+        position: sticky !important;
+        top: 0;
+        left: 0;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 9999;
+        padding-left: 0px !important;
+        left: 0px !important;
+    }
+
+    body:not(.edit):has(.ContentFullScreen) .header-bar-outer-container {
+        display: none;
+    }
+
+    body:not(.edit):has(.ContentFullScreen) .ic-Layout-contentMain {
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+    }
+
+    body:not(.edit).pages.show:has(.ContentFullScreen) .show-content {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+}
+
+
+body:not(.edit) .ContentFullScreen .contentIframe {
+    height: 100vh !important;
+    right: 0;
+    left: 0;
+    display: inline-block;
+}
+
+body:not(.edit):has(.ContentFullScreen) #left-slide {
+    background: #fff;
+    height: 100%;
+    left: -208px;
+}
+
+body:not(.edit):has(.ContentFullScreen) .ic-app-nav-toggle-and-crumbs {
+    z-index: 11;
+    border-bottom: 0 !important;
+    padding: 17px 0;
+    width: 50px;
+    margin-right: 0;
+}
+
+body:not(.edit):has(.ContentFullScreen) .ic-app-crumbs {
+    display: none;
+}
+
+body:not(.edit):has(.ContentFullScreen) #fixed_bottom .fixed_warning {
+    display: none !important;
+}
+
+body:not(.edit):has(.ContentFullScreen) #left-side,
+body:not(.edit):has(.ContentFullScreen) #left-side > div {
+    background: #fff;
+}
+
+body:not(.edit):has(.ContentFullScreen) #left-side nav {
+    background: #fff;
+    padding: 40px 10px;
+    transform: translate3d(-184px, 0, 0);
+    transition: .3s transform ease-in-out;
+    display: block !important;
+}
+
+body:not(.edit).course-menu-expanded:has(.ContentFullScreen) #left-side nav {
+    transform: translate3d(0, 0, 0) !important;
+}
+
+body:not(.edit):has(.ContentFullScreen) .ic-app-course-menu {
+    padding: 0 !important;
+}
+
+body:not(.edit).primary-nav-expanded .ContentFullScreen {
+    padding-left: 30px;
+}
+
+@media (max-width: 600px) {
+    body:not(.edit):has(.ContentFullScreen) .facet_sidebar {
+        display: none;
+    }
+}
+
+body:not(.edit):has(.ContentFullScreen) #loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: #fff;
+    animation: intro 1000ms ease;
+}
+
+body:not(.edit):has(.ContentFullScreen) #loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 300px;
+    height: 300px;
+    margin: -150px 0 0 -150px;
+    z-index: 150;
+}
+
+body:not(.edit) .ContentFullScreen .dot {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #173557;
+    border-radius: 50%;
+    float: left;
+    margin: 0 5px;
+    transform: scale(0);
+    animation: fx 1000ms ease infinite 0ms;
+}
+
+body:not(.edit) .ContentFullScreen .dot:nth-child(2) {
+    animation: fx 1000ms ease infinite 300ms;
+}
+
+body:not(.edit) .ContentFullScreen .dot:nth-child(3) {
+    animation: fx 1000ms ease infinite 600ms;
+}
+
+@keyframes fx {
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes intro {
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+/****************************************************************
+ * Ocultar Importacion de SIS Boton de Grupos
+ * Fecha: 05-11-2025
+ * Developer: JMV
+ *****************************************************************/
+#sis_import_form div:has(div>#batch_mode){
+    display: none;
+}
+
+/****************************************************************
+ * Ocultar Boton Agregar Token
+ * Fecha: 05-11-2025
+ * Developer: JMV
+ *****************************************************************/
+#access_tokens_holder, .add_access_token_link {
+    display: none !important;
+}

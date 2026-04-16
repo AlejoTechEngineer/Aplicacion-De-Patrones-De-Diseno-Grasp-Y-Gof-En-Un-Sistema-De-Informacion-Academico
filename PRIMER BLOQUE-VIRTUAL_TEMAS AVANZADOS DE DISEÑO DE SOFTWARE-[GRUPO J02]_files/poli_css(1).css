@@ -1,0 +1,1620 @@
+/****************************************************************
+ * Universidad: POLI
+ * File: Styles
+ * Sub cuenta: 21
+ * Ultima Revision: 2023/08/29
+ *****************************************************************/
+.file_download_btn {
+    display: none;
+}
+
+.file_download_btn {
+    display: none !important;
+}
+
+/***** MODALES ****/
+/*.whitex .close{
+    visibility: hidden;
+}*/
+/*.whitex .close:before {
+    content: "X";
+    visibility:visible;
+    padding: 1px 5px 3px!important;
+    line-height: 19px;
+    background: #182b51;
+    color: #fff;
+    margin: 5px;
+    border-radius: 22px;
+    position: relative;
+    right: 0;
+    display: block;
+}*/
+
+/************************************************** 
+PROPIEDADES DE LOS LINKS DE LA PAGINA DE LOGIN
+***************************************************/
+.ic-Login-footer .ic-Login-footer__links a,
+.ic-Login-footer .ic-Login-footer__links .menu-item__text {
+    display: none;
+}
+
+.ic-Login-footer .ic-Login-footer__logo-link {
+    display: none;
+}
+
+.footer-logo {
+    display: none;
+}
+
+.ic-app-footer__links a {
+    display: none;
+}
+
+.ic-Login-footer .ic-Login-footer__links {
+    text-align: center;
+}
+
+
+/************************************************** 
+OCULTAMIENTO DEL LOGO "By INSTRUCTURE" DEL LOGIN
+***************************************************/
+.ic-Login-footer .ic-Login-footer__logo-link {
+    display: none;
+}
+
+.ic-Login__actions .ic-Login__forgot,
+.ic-Login__actions .ic-Login__actions-timeout {
+    display: none;
+}
+
+/************************************************** 
+OCULTAMIENTO DEL LOGO "By INSTRUCTURE" DEL FOOTER
+***************************************************/
+#footer .footer-logo {
+    display: none;
+}
+
+/*.mi_botton{
+    
+
+position: absolute;
+    right: 50%;
+    top: 0;
+    z-index: 9999;
+    background: #0060ae;
+    color: #fff;
+    padding: 7px;
+    }*/
+
+
+/*centrar imagen y boton*/
+.ic-Login-header,
+.ic-Login-header .ic-Login-header__logo img,
+.ic-Login__actions,
+.ic-Login__actions .Button--login {
+    display: block;
+    margin: 0 auto;
+}
+
+/*#questions .question_name .answer_arrow,#questions .question_points_holder .user_points ,#questions .quiz_comment{
+    display: none !important;
+}*/
+
+.courses .unstyled_list .clearfix .unenroll_link {
+    display: none;
+}
+
+
+
+/************************************************** 
+cargando mathjax
+***************************************************/
+.cargando-math {
+    font-size: 12px;
+    color: rgb(0, 96, 174);
+}
+
+/************************************************** 
+fin cargando mathjax
+***************************************************/
+
+/************************************************** 
+foros
+***************************************************/
+
+.replies {
+    padding-left: 7px;
+    border-left: solid #f2f2f2 16px;
+}
+
+.discussion-read-state-btn {
+    top: 32px;
+}
+
+div.entry-content {
+    padding-left: 0px !important;
+}
+
+/************************************************** 
+fin foros
+***************************************************/
+
+/************************************************** 
+TAV
+***************************************************/
+.cont_btn {
+    position: fixed;
+    float: right;
+    right: 0px;
+    width: 150px;
+    margin-top: 10%;
+}
+
+.c_btn_ {
+    color: #fff;
+    padding: 10px;
+    float: left;
+    margin-top: 5%;
+    width: 150px;
+    font-size: 20px;
+    text-align: right;
+    float: right;
+    box-shadow: 5px 5px #888;
+    font-weight: bold;
+}
+
+#bt1 {
+    background: #37C2F2
+}
+
+#bt1:hover {
+    width: 170px;
+    color: #fff;
+    text-decoration: none;
+}
+
+#bt2 {
+    background: #B23F73
+}
+
+#bt2:hover {
+    width: 170px;
+    color: #fff;
+    text-decoration: none;
+}
+
+#bt3 {
+    background: #F8C82C
+}
+
+#bt3:hover {
+    width: 170px;
+    color: #fff;
+    text-decoration: none;
+}
+
+#bt4 {
+    background: #59B200
+}
+
+#bt4:hover {
+    width: 170px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.c_btn_ a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/************************************************** 
+fin TAV
+***************************************************/
+
+/*calcular*/
+
+#assignments-not-weighted .ic-Form-control,
+#whatif-score-description {
+    display: none;
+}
+
+#course_allow_student_organized_groups {
+    display: none;
+}
+
+.profile_table .links a:nth-child(3),
+.profile_table .links a:nth-child(4) {
+    display: none;
+}
+
+
+.headerBar #new-discussion-btn {
+    display: none;
+}
+
+
+/*escenarios*/
+
+@charset "utf-8";
+/* CSS Document */
+
+
+/* --------------- Fonts --------------- */
+
+@font-face {
+    font-family: PoliBold;
+    src: url(https://canvas-rsc.ilumno.com/testilumno/prod/js/repositorio/js/components/poli/fonts_prueba/BRANDON_BLD.OTF);
+}
+
+@font-face {
+    font-family: PoliMedium;
+    src: url(https://canvas-rsc.ilumno.com/testilumno/prod/js/repositorio/js/components/poli/fonts_prueba/BRANDON_MED_0.OTF);
+}
+
+
+/* --------------- Colores globales --------------- */
+
+/*POLI azul claro*/
+.POLI_linea_header,
+.btnActividades,
+.btnIcono {
+    background-color: #2EA6CF !important;
+}
+
+.celestePoli {
+    color: #2EA6CF;
+}
+
+/*POLI azul marca*/
+.menu_header,
+.POLI_slogan,
+.POLI_copyright {
+    background-color: #10355A !important;
+}
+
+.azulPoli {
+    color: #10355A;
+}
+
+/*POLI naranja*/
+.orangePoli {
+    color: #FFAC2C;
+}
+
+/*POLI verde*/
+.greenPoli {
+    color: #A1CE44;
+}
+
+/*POLI magenta*/
+.magentaPoli {
+    color: #FD2E7F;
+}
+
+/*Gris claro*/
+.POLI_banner_header,
+.btnVideo .POLI_txt {
+    background-color: #EEEEEE !important;
+}
+
+/*Gris oscuro*/
+.POLI_btnAprendizaje {
+    background-color: #333333 !important;
+}
+
+/*negro*/
+.POLI_slogan_2,
+.btnVideo .POLI_txt {
+    color: #000000 !important;
+}
+
+/*blanco*/
+.menuMods li a,
+.POLI_btnAprendizaje {
+    color: #FFFFFF !important;
+}
+
+.btnActividades:hover {
+    background-color: #FFFFFF;
+    color: #000000 !important;
+}
+
+/* --------------- AULA VIRTUAL HEADER --------------- */
+
+
+.POLI_contenedorGeneral {
+    max-width: 1050px;
+    margin: 0 auto;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    min-width: 220px;
+}
+
+
+.POLI_linea_header {
+    border-bottom: 1px solid #fff;
+    height: 10px;
+    position: relative;
+    width: 100%;
+    top: 0px;
+    z-index: 100;
+}
+
+.POLI_banner_header {
+    width: 100%;
+    height: 100% !important;
+    min-height: 90px !important;
+    max-height: 170px !important;
+    position: relative;
+    z-index: 100;
+}
+
+.POLI_logo_header {
+    margin: 5px 10px;
+    width: 100%;
+    max-width: 431px !important;
+    min-width: 400px !important;
+    position: relative;
+    text-align: center;
+}
+
+.POLI_slogan_2 {
+    width: 96.5%;
+    position: relative;
+    font-family: PoliBold;
+    font-size: 16px;
+    text-align: right;
+    margin: 16px auto;
+    padding-right: 30px !important;
+}
+
+.menu_header {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    z-index: 100;
+    border-bottom: 1px solid #fff;
+}
+
+.menuMods li a {
+    font-family: PoliMedium !important;
+    text-decoration: none !important;
+}
+
+.bntMenu {
+
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/mov/imenu.png) !important;
+    width: 32px;
+    height: 16px;
+    margin: 10px 16px 16px 16px;
+    float: right;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* Nav SubMenu */
+@keyframes submenumotion {
+    from {
+        margin-top: 10px;
+        opacity: 0.5;
+    }
+
+    to {
+        margin-top: 14px;
+        opacity: 1;
+    }
+}
+
+.POLI_contenedorGeneral .navSub ul.menuMods {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.POLI_contenedorGeneral .navSub ul.menuMods>li {
+    padding-top: 14px;
+    height: 30px;
+}
+
+.POLI_contenedorGeneral .navSub ul.menuMods>li:hover {
+    background-color: #032546;
+}
+
+.POLI_contenedorGeneral .navSub ul.submenu {
+    color: white;
+    position: absolute;
+    background: #03a9f4;
+    margin-top: 14px;
+    margin-left: 0;
+    display: none;
+    opacity: 1;
+    transition: all .5s ease;
+    max-width: 150px;
+    padding: 0px !important;
+    padding-left: 3px;
+    min-width: 120px !important;
+    text-align: left !important;
+    margin-left: -27px !important;
+
+    animation-name: submenumotion;
+    animation-duration: .5s;
+}
+
+.POLI_contenedorGeneral .navSub ul.submenu li {
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    transition: all .3s ease;
+    text-transform: uppercase;
+    font-size: 12px !important;
+}
+
+.POLI_contenedorGeneral .navSub ul.submenu li a {
+    display: block;
+    border-bottom: 1px solid #2092ec;
+    padding: 10px 20px 10px 20px;
+    text-align: left !important;
+}
+
+.POLI_contenedorGeneral .navSub ul.submenu li a:hover {
+    background: #00355d;
+    border-left: 3px solid deeppink;
+    padding-left: 20px;
+}
+
+.POLI_contenedorGeneral .navSub ul.submenu li:last-child a {
+    border-bottom: none !important;
+}
+
+.POLI_contenedorGeneral .navSub ul.menuMods>li:last-child ul.submenu {
+    margin-left: -27px !important;
+}
+
+.POLI_contenedorGeneral .navSub ul.menuMods>li:hover ul.submenu,
+.POLI_contenedorGeneral .navSub ul.menuMods>li ul.submenu:hover {
+    display: block;
+    opacity: 1;
+}
+
+
+@media only screen and (max-width: 1100px) {
+    .POLI_contenedorGeneral .navSub .bntMenu {
+        margin: 16px 16px 16px 16px !important;
+    }
+
+    .POLI_contenedorGeneral .navSub div.btnsMods .cerrar {
+        padding: 10px 10px 6px !important;
+        line-height: 14px;
+        margin-left: -70px !important;
+        margin-top: -15px;
+        height: 15px;
+    }
+
+    .POLI_contenedorGeneral .navSub ul.menuMods>li {
+        padding-top: 14px;
+        height: auto !important;
+    }
+
+    .POLI_contenedorGeneral .navSub div.btnsMods .cerrar:hover {
+        color: #000;
+        background: #eee !important;
+    }
+
+    .POLI_contenedorGeneral .navSub div.btnsMods {
+        height: auto !important;
+        width: 250px;
+    }
+
+    .POLI_contenedorGeneral .navSub ul.menuMods>li:hover ul.submenu,
+    .POLI_contenedorGeneral .navSub ul.menuMods>li ul.submenu:hover {
+        display: contents !important;
+    }
+
+    .POLI_contenedorGeneral .navSub ul.submenu {
+        color: white;
+        position: relative;
+        background: transparent;
+        margin-top: 13px;
+        margin-left: 0;
+        display: none;
+        opacity: 1;
+        padding-left: 5px;
+        transition: all .5s ease;
+        max-width: 300px !important;
+    }
+
+    .POLI_contenedorGeneral .navSub ul.submenu li a {
+        display: block;
+        padding: 10px 10px 10px 10px;
+        border-bottom: 1px solid #333;
+        transition: all .5s ease;
+    }
+
+    .POLI_contenedorGeneral .navSub ul.menuMods>li:hover {
+        background: transparent !important;
+    }
+
+    .POLI_contenedorGeneral .navSub ul.submenu li:hover a {
+        background: transparent;
+        padding-left: 15px;
+        border-left: 1px solid deeppink !important;
+    }
+}
+
+/* END Nav SubMenu */
+
+/* --------------- AULA VIRTUAL BANNER --------------- */
+
+.bannerPrincipal {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto1.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipal_POLI {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto2.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaula3 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto3.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaula4 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto4.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaula5 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto5.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaula6 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto6.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaulaSB1 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/competencias_ciudadanas.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaulaSB2 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/razonamiento_cuantitativo.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaulaSB3 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/ingles_A1_A2.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaulaSB4 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/comunicacion_escrita.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaulaSB5 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/ingles_B1_B2.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bannerPrincipalaulaSB6 {
+    background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/metafora_final.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+}
+
+.bgAzul {
+    padding: 80px 0px !important;
+    background-color: transparent !important;
+    border-top: none !important;
+}
+
+.padding01 {
+    padding: 80px 50px !important;
+    background-color: #000000;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    /* For IE8 and earlier */
+}
+
+.sub_tit {
+    font-family: PoliMedium !important;
+    line-height: 32px;
+}
+
+h1 strong {
+    font-size: 36px;
+    font-family: PoliBold !important;
+    ;
+}
+
+span {
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.MathJax span {
+    font-size: 21px;
+    line-height: 20px;
+}
+
+.btnIcono {
+    border-radius: 3px;
+    padding: 10px 0px 0px 12px;
+    display: inline-block;
+    height: 24px;
+    text-align: right;
+}
+
+.btnVideo .POLI_txt {
+    font-size: 14px !important;
+    padding: 5px 9px 12px 9px !important;
+    font-family: PoliMedium !important;
+    margin-top: 4px !important;
+    max-height: 8px !important;
+}
+
+/* -.-.-.-.-.- Footer -.-.-.-.-.- */
+
+.POLI_cierre {
+    width: 100%;
+    height: 100px;
+    background-color: #000000;
+    border-top: solid 1px #FFFFFF;
+}
+
+.POLI_cierre_logo {
+    margin: 15px 0 0 15px;
+}
+
+.POLI_cierre_btn {
+    display: inline-block;
+    width: 14%;
+    height: 76px;
+    padding: 12px 8px;
+    background-color: #2EA6CF;
+    float: right;
+    border-left: solid 1px #FFF;
+    text-align: center;
+    line-height: 16px;
+
+}
+
+.POLI_cierre_btn2 {
+    display: inline-block;
+    width: 14%;
+    height: 76px;
+    padding: 12px 8px;
+    background-color: #FD2E7F;
+    float: right;
+    border-left: solid 1px #FFF;
+    text-align: center;
+    line-height: 16px;
+
+}
+
+
+.POLI_cierre_btn a {
+    font-family: PoliMedium;
+    font-size: 11px;
+    color: #FFFFFF;
+    text-decoration: none !important;
+    text-align: center;
+}
+
+.POLI_cierre_btn2 a {
+    font-family: PoliMedium;
+    font-size: 11px;
+    color: #FFFFFF;
+    text-decoration: none !important;
+    text-align: center;
+}
+
+
+.POLI_copyright {
+    text-align: center;
+    font-size: 11px;
+    padding: 5px 3px 5px 3px;
+    font-family: Arial !important;
+    color: #FFF;
+    border-top: solid 1px #FFFFFF;
+}
+
+.extraButtons {
+    display: none
+}
+
+
+@media only screen and (max-width: 1100px) {
+
+    .btnsMods {
+        /*display: none; */
+        background-color: #333333 !important;
+        height: 400px !important;
+    }
+
+    .POLI_cierre_logo {
+        margin: 15px 0 15px 15px;
+    }
+
+    .POLI_cierre {
+        width: 100%;
+        height: 400px;
+        background-color: #000000;
+        border-top: solid 1px #FFFFFF;
+    }
+
+    .POLI_cierre_btn {
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+        padding: 12px;
+        background-color: #2EA6CF;
+        float: right;
+        border-left: none;
+        border-bottom: solid 1px #FFF;
+        text-align: left;
+        line-height: 16px;
+
+    }
+
+    .POLI_cierre_btn2 {
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+        padding: 12px;
+        background-color: #FD2E7F;
+        float: right;
+        border-left: none;
+        border-bottom: solid 1px #FFF;
+        text-align: left;
+        line-height: 16px;
+
+    }
+
+    .bannerPrincipal.section.group .span_4_of_8:first-child {
+        display: none;
+    }
+
+    .brClose {
+        display: none;
+
+    }
+
+    @media only screen and (max-width: 768px) {
+
+        .bannerPrincipal {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto1.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipal_POLI {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto2.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaula3 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto3.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaula4 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto4.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaula5 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto5.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaula6 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/default/foto6.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaulaSB1 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/competencias_ciudadanas.png);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaulaSB2 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/razonamiento_cuantitativo.png);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaulaSB3 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/ingles_A1_A2.png);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaula4 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/comunicacion_escrita.png);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaulaSB5 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/ingles_B1_B2.png);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .bannerPrincipalaulaSB6 {
+            background-image: url(https://imgact.poligran.edu.co/css_poli/css_escen/img/saber/metafora_final.png);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            display: flex;
+        }
+
+        .POLI_banner_header {
+            width: 100%;
+            height: 90px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .POLI_logo_header {
+            max-width: 431px !important;
+            min-width: 200px !important;
+            text-align: center !important;
+        }
+
+        .POLI_slogan_2 {
+            width: 96.5%;
+            position: relative;
+            font-family: PoliBold;
+            font-size: 14px;
+            text-align: right;
+            margin: 10px auto !important;
+            padding-right: 20px;
+        }
+
+        .menu_header {
+            padding-top: 10px !important;
+        }
+
+
+
+    }
+
+    @media only screen and (max-width: 680px) {
+
+        .POLI_banner_header {
+            width: 100%;
+            height: 158px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .POLI_logo_header {
+            max-width: 431px !important;
+            min-width: 100px !important;
+            text-align: center !important;
+
+        }
+
+        .POLI_slogan_2 {
+            text-align: center;
+            margin: 0px 0;
+            width: 96, 5%;
+            padding: 10px 15px 10px 15px;
+            background-color: #FFFFFF;
+            text-align: right !important;
+            padding-right: 20px !important;
+        }
+
+        .menu_header {
+            padding-top: 10px !important;
+        }
+
+    }
+
+
+    @media only screen and (max-width: 429px) {
+
+        .POLI_banner_header {
+            width: 100%;
+            height: 128px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .POLI_logo_header {
+            margin: 5px 0px;
+            max-width: 431px !important;
+            min-width: 100px !important;
+            text-align: center !important;
+        }
+
+        .POLI_slogan_2 {
+            text-align: center;
+            margin: 0px 0;
+            width: 92.5%;
+            padding: 10px 15px 10px 15px;
+            background-color: #FFFFFF;
+            text-align: right !important;
+            padding-right: 20px !important;
+        }
+
+    }
+}
+
+
+/* ************************************************************** 
+/* Estilos Plantilla 2023
+/* ************************************************************** */
+:root {
+    --poli-azul-1: #3fa9f5;
+    --poli-azul-2: #0F385A;
+    --poli-verde-1: #a6ce38;
+    --poli-verde-2: #88a828;
+    --poli-verde-3: #495916;
+    --poli-magenta-1: #E10064;
+
+    --blue-dark: #051E34;
+    --gris-soft: #EFEFEF;
+    --gris-middle: #CECECE;
+}
+
+body:not(.full-width):not(.outcomes):not(.body--login-confirmation):has(#plantilla_2023) .ic-Layout-wrapper {
+    max-width: 100%;
+}
+body:has(#plantilla_2023) #wiki_page_show .header-bar-outer-container:not(:has(.page-toolbar-end .edit-wiki)) {
+    display: none;
+}
+
+#plantilla_2023 {
+    overflow: hidden;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral {
+    max-width: 100%;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header {
+    background-color: var(--poli-azul-2) !important;
+    min-height: 70px !important;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .course_title {
+    padding: 0 1rem;
+    color: #FFF;
+    margin-top: 15px;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons {
+    padding: 0 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 0;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons a img {
+    height: 40px;
+    width: 40px;
+    margin: 0 5px;
+    display: none;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons a img:nth-child(1),
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons a:hover img:nth-child(2) {
+    display: block;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons a:hover img {
+    display: none;
+}
+
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer {
+    color: #FFF;
+    background-color: var(--poli-verde-1);
+    width: 100%;
+    display: flex;
+    min-height: 70px !important;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul {
+    list-style: none;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a {
+    color: #FFF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a .iconos {
+    width: 30px;
+    width: 25px;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a .texto {
+    margin: 0;
+    margin-left: 5px;
+    font-size: 12px;
+    font-size: .7em;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a:hover {
+    color: var(--poli-verde-3);
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a img {
+    display: none;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a img.logo_poli {
+    width: 70px;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a img:nth-child(1),
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icon-change a:hover img:nth-child(2) {
+    display: block;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icon-change a:hover img {
+    display: none;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.bg-verde-oscuro {
+    background: var(--poli-verde-2);
+    padding: 2px 5px;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_content_course {
+    min-height: 75vh;
+    display: flex;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_content_course.bg-course {
+    background-image: url(https://canvas-rsc.ilumno.com/poli/prod/img/bg_course_p2.jpg);
+    background-image: linear-gradient(67deg, rgba(15, 56, 90, 0.60) 0%, rgba(255, 255, 255, .9) 70%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 1) 100%), url(https://canvas-rsc.ilumno.com/poli/prod/img/bg_course_p2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_home_content_iframe {
+    height: 33vh;
+    width: 80%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: auto;
+    height: 50vh;
+    width: calc(100% - 50px);
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_home_content_iframe iframe {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#plantilla_2023 #content-unidades svg {
+    width: 100%;
+    height: auto;
+}
+
+#plantilla_2023 .hexagon_hover {
+    cursor: pointer;
+}
+
+#plantilla_2023 .hexagon_hover:hover .hex {
+    fill: var(--poli-magenta-1);
+}
+
+/* modal */
+#plantilla_2023_new_modal .fade {
+    opacity: 0;
+    transition: opacity .15s linear;
+}
+
+#plantilla_2023_new_modal .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+}
+
+#plantilla_2023_new_modal .modal {
+    z-index: 1072;
+}
+
+#plantilla_2023_new_modal .fade.show {
+    opacity: 1;
+    display: block;
+}
+
+#plantilla_2023_new_modal .modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* ----------------- */
+#plantilla_2023_new_modal .modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 0.5rem;
+    pointer-events: none;
+    max-width: 100%;
+}
+
+#plantilla_2023_new_modal .modal-dialog-centered {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: calc(100% - (0.5rem * 2));
+}
+
+@media (min-width: 576px) {
+    #plantilla_2023_new_modal .modal-dialog {
+        max-width: 70%;
+        margin: 1.75rem auto;
+    }
+}
+
+@media (min-width: 576px) {
+    #plantilla_2023_new_modal .modal-dialog-centered {
+        min-height: calc(100% - (1.75rem * 2));
+    }
+}
+
+#plantilla_2023_new_modal .modal.fade .modal-dialog {
+    transition: -webkit-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+    -webkit-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+}
+
+#plantilla_2023_new_modal .modal.show .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+/* ----------------- */
+#plantilla_2023_new_modal .modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 0.3rem;
+    outline: 0;
+    background-color: transparent;
+    border: 0;
+}
+
+#plantilla_2023_new_modal .modal-content button.close {
+    top: -50px;
+    right: 5vw;
+    position: absolute;
+    opacity: 1;
+}
+
+#plantilla_2023_new_modal .modal-content button.close img {
+    width: 50px;
+}
+
+#plantilla_2023_new_modal .modal-content button.close:hover img {
+    display: none;
+}
+
+#plantilla_2023_new_modal .modal-content button.close:hover img:nth-child(2) {
+    display: block !important;
+}
+
+
+#plantilla_2023_new_modal .modal-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+
+#plantilla_2023_new_modal .modal-body {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+}
+
+#plantilla_2023_new_modal .bg-modal {
+    background: url(https://canvas-rsc.ilumno.com/poli/prod/img/bg_modal.png);
+    min-height: 50vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content {
+    width: 31vw;
+    height: 50vh;
+    height: calc(50vh - 50px);
+    margin-left: 8vw;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content .modulo-header {
+    width: 100%;
+    border-bottom: 2px solid var(--poli-verde-1);
+    display: flex;
+    padding-bottom: 10px;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content .modulo-header .modulo-title {
+    padding: 0 20px;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content .modulo-header .modulo-title .modulo-title-1 {
+    font-weight: normal;
+    font-size: .8rem;
+    margin: 0;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content .modulo-header .modulo-title .modulo-title-2 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content .modulo-desc {
+    padding: 10px;
+    text-align: justify;
+    font-size: 90%;
+}
+
+#plantilla_2023_new_modal .bg-modal .modulo-content .modulo-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#plantilla_2023 .POLI-btn-close-right-side-wrapper {
+    background-color: #0f385a;
+    border-radius: 50%;
+    border: 0;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+}
+
+#plantilla_2023 .POLI-btn-close-right-side-wrapper:hover {
+    background-color: var(--poli-magenta-1) !important;
+}
+
+#plantilla_2023 .POLI-btn-close-right-side-wrapper img {
+    transition: all 0.5s ease 0s;
+}
+
+#plantilla_2023 .btn-verde-2023,
+#plantilla_2023_new_modal .btn-verde-2023 {
+    margin: 0 10px;
+    background-color: var(--poli-verde-1);
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 10px;
+    border: 0;
+    max-width: 130px;
+    font-size: .8em;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#plantilla_2023_new_modal .modal-footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+/* ----------------- */
+#plantilla_2023_new_modal .modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+}
+
+#plantilla_2023_new_modal .modal-backdrop {
+    z-index: 1071;
+}
+
+#plantilla_2023_new_modal .modal-backdrop.fade {
+    opacity: 0;
+}
+
+#plantilla_2023_new_modal .modal-backdrop.show {
+    opacity: .5;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .title-menu {
+    color: #de1537;
+    display: none;
+}
+
+#plantilla_2023 .btn-close-menu-secciones {
+    border-radius: 50%;
+    font-weight: bold;
+    color: #de1537;
+    padding: 5px 10px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+#plantilla_2023 .POLI-btn-menu-secciones,
+#plantilla_2023 .btn-close-menu-secciones,
+#plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades {
+    display: none;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icono-footer-accion {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--poli-verde-3);   
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icono-footer-accion .texto{
+    color: var(--poli-verde-3);
+    margin: 0;
+    margin-left: 5px;
+    font-size: 12px;
+    font-size: .7em;
+}
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icono-footer-accion:hover .texto{
+    color:#FFF;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icono-footer-accion:hover img:nth-child(2) {
+    display: block;
+}
+
+#plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.icono-footer-accion:hover img {
+    display: none;
+}
+
+@media only screen and (max-width: 799px) {
+
+    #plantilla_2023 .POLI-btn-menu-secciones,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .title-menu {
+        display: block;
+    }
+
+    #plantilla_2023 .POLI-btn-close-right-side-wrapper {
+        display: none;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header {
+        height: 120px !important;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header div:nth-child(1).span_6_of_8 {
+        width: 70%;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header div:nth-child(2).span_2_of_8 {
+        width: 30%;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons {
+        width: 100%;
+        flex-wrap: wrap;
+        margin: 10px 0;
+        padding: 0;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_banner_header .POLI_content_icons a {
+        margin: 5px 0;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul {
+        flex-direction: column;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li {
+        width: 100%;
+        height: 40px;
+        padding: 5px !important;
+        border-bottom: 2px solid #FFF;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li.logo {
+        display: none;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a {
+        height: 100%;
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0 20px;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a .texto br {
+        display: none;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_footer ul li a .texto {
+        font-size: .9rem;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral:has(.div-unidades) {
+        /* display: none; */
+        overflow: unset;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades {
+        position: absolute;
+        overflow: auto;
+        top: 0;
+        right: -100%;
+        background-color: #333 !important;
+        color: #fff;
+        max-width: 70vw;
+        margin: 0 !important;
+        padding: 0 20px !important;
+        z-index: 900;
+        transition: all .8s ease;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .modulo-header .subitems-btn .modulo-title-2:after {
+        content: '';
+        background-image: url(https://canvas-rsc.ilumno.com/poli/prod/img/icon-chevron-right-normal-blanco.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+        margin-bottom: -4px;
+        margin-left: 5px;
+        /* transition: all .8s ease; */
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .subitems-content a {
+        background-color: transparent;
+        color: #FFF;
+        display: flex;
+        max-width: 100%;
+        justify-content: flex-start;
+        padding: 10px;
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .subitems-content.show .modulo-title.subitems-btn .modulo-title-2:after {
+        transform: rotate(90deg);
+    }
+
+    #plantilla_2023 .btn-close-menu-secciones,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .subitems-content.show .modulo-buttons.subitems-links {
+        display: block !important;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #content-unidades,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .modulo-desc,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .modulo-buttons,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .modulo-header .icon-modulo,
+    #plantilla_2023 .POLI_contenedorGeneral .div-unidades #enlaces-unidades .modulo-header .modulo-title-1 {
+        display: none;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_content_course {
+        min-height: 50vh;
+    }
+
+    #plantilla_2023 .POLI_contenedorGeneral .POLI_home_content_iframe {
+        height: 30vh;
+        width: 90%;
+    }
+}

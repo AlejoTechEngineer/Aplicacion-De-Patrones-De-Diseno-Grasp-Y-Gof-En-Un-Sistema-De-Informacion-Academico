@@ -1,0 +1,380 @@
+// version 0004
+window.addEventListener('load', () => {
+    const isTest = location.href.includes('.test.');
+    /* -------------------------------------------------------
+     *  VARIABLES BÁSICAS
+     * -----------------------------------------------------*/
+    const urlAvanceApi = isTest 
+            ? "https://vm-sitesapis.poligran.edu.co/bannerapiproxy/api/proxy"
+            : "https://bannerapiproxy.poligran.edu.co/api/proxy";
+            
+    const xPatherK  = isTest ? "P@rtn3rK3y2024!" : "0P3Sjlp72tZyTx";
+    const studentID = ENV.current_user_id;
+    const courseID  = (ENV.current_context?.id || ENV.COURSE_ID);
+
+    const local_item_avance        = `avance_u${studentID}_c${courseID}`;
+    const local_item_avance_events = `avance_u${studentID}_c${courseID}_avance`;
+
+    const isMobileUserAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isMobileScreen = window.innerWidth <= 768;
+
+    
+    /* -------------------------------------------------------
+     *  CARGA DIFERIDA
+     * -----------------------------------------------------*/
+    requestIdleCallback(() => init());
+    
+    async function init() {
+
+        console.log('INIT');
+
+        const plantilla_2025 = document.getElementById('plantilla_2025');
+        console.log('plantilla_2025', plantilla_2025);
+
+        if (!plantilla_2025) return;
+
+        _loaderAdd();
+
+        scrollToTop(plantilla_2025);
+        document.body.classList.remove('course-menu-expanded');
+
+        init_core();
+
+        _loaderRemove();
+    }
+    
+    function scrollToTop(plantilla) {
+        if (location.hash === '#menu-navegacion') {
+            document.querySelector(".contEstructura .titulo_st1")
+                ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+            plantilla.scrollTo(0, 0);
+        }
+        document.querySelector('html').scrollTo(0, 0);
+    }
+
+    /* -------------------------------------------------------
+     *  INICIALIZACIÓN PRINCIPAL
+     * -----------------------------------------------------*/
+    function init_core() {
+
+        setStylesModal_XXV();
+        validate_mobile_elements();
+        crearVariablesIniciales();
+
+        avance_get_info();   
+        avance_show_info();
+
+        init_jquery_func();
+    }
+    
+    function init_jquery_func() {
+        const root = $('#plantilla_2025');
+
+        // Navegacion
+        root.find('.icon[data-action="menuredes"]')
+            .on('click', menuRedes);
+
+        root.find('.icon[data-action="main_responsive"]')
+            .on('click', mainResponsive);
+
+        root.find('[data-showtab]')
+            .on('click', function (e) {
+                e.preventDefault();
+                showTab($(this).data('showtab'));
+            });
+
+        
+        // Unidades
+        // Actualizar indices
+        root.find('[data-accion="avance"]').each((idx, el) => {
+            $(el).attr('data-avance-index', idx);
+        });
+
+        root.find('[data-accion="avance"]').on('click', function(event){
+            event.preventDefault();
+            let target  = event.target;
+            let evento  = $(target).attr('data-evento');
+            let percent = $(target).attr('data-porcentaje');
+            let index   = $(target).attr('data-avance-index');
+            let unidad  = 'avatar_unidad_'+$(target).attr('data-unidad');
+            let href    = $(target).attr('href');
+            let openmodal = $(target).attr('data-openmodal');
+            let myAvanceStorage = null;
+                myAvanceStorage = localStorage.getItem(local_item_avance_events);
+                myAvanceStorage = (myAvanceStorage !== undefined && myAvanceStorage !== null) ? JSON.parse(myAvanceStorage) : {};
+            let objIDX = Object.keys(myAvanceStorage).indexOf(unidad);
+            if(objIDX == -1){ myAvanceStorage[unidad] = {}; }
+            
+            switch (evento) {                    
+                case 'evaluation':
+                    href = $(target).attr('href').split('/');
+                    let quizzID = false;
+                    let quizzType = false;
+
+                    let hrefIDX = href.indexOf('quizzes');
+                    if(hrefIDX != -1){
+                        quizzID = href[hrefIDX+1];
+                        quizzType = 'classic';
+                    }
+                    let hrefIDX2 = href.indexOf('assignments');
+                    if(hrefIDX2 != -1){
+                        quizzID = href[hrefIDX2+1];
+                        quizzType = 'assignments';
+                    }
+
+                    myAvanceStorage[unidad][index] = { "event":"evaluation", "val":percent, "quizzType":quizzType, "quizzID":quizzID, "status": "untaken" };
+                    localStorage.setItem(local_item_avance_events, JSON.stringify(myAvanceStorage));
+                    avance_update_info();
+
+                    // continue redirect
+                    location.href = $(target).attr('href');
+                    break;
+
+                default:
+                    myAvanceStorage[unidad][index] = { "event":"click", "val":percent };
+                    localStorage.setItem(local_item_avance_events, JSON.stringify(myAvanceStorage));
+                    avance_update_info();
+                    // continue redirect
+                    if(href && href != '#'){
+                        location.href = $(target).attr('href');
+                    }
+                    break;
+            }
+        })
+        
+        var scrollContainer = document.querySelector('#plantilla_2025');
+        var avanceElements = $('#plantilla_2025 [data-evento="view"]');
+
+        if(scrollContainer){
+            // Adjunta el listener de scroll al contenedor apropiado
+            scrollContainer.addEventListener('scroll', handleAvanceScroll);
+
+            // Ejecuta una primera verificación al cargar la página por si algún elemento ya está en vista
+            handleAvanceScroll();
+        }
+
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleAvanceScroll() {
+            avanceElements.each(function() {
+                const $this = $(this);
+                if (isElementInViewport(this)) {
+                    this.click();
+                    // Marca el elemento como clickeado para que no se dispare de nuevo
+                    $this.data('clicked', true);
+
+                    // Opcional: Si solo quieres un click por elemento, puedes remover el listener aquí
+                    // si todos los elementos ya han sido clickeados
+                    if (avanceElements.filter(function() { return $(this).data('clicked'); }).length === avanceElements.length) {
+                    scrollContainer.removeEventListener('scroll', handleAvanceScroll);
+                    }
+                }
+            });
+        }
+    }
+   
+    
+    // ---------
+    function menuRedes() {
+        var el = document.getElementById("FmenuRedes");
+        if (!el) return console.warn('plantilla.js: Element Id "FmenuRedes" no encontrado');
+        
+        if (el.className === "navcorreo") {
+            el.className += " responsive";
+        } else {
+            el.className = "navcorreo";
+        }
+    }
+        
+    function mainResponsive() {
+        var el = document.getElementById("FmainResponsive");
+        if (!el) return console.warn('plantilla.js: Element Id "FmainResponsive" no encontrado');
+        if (el.className === "mainComunica") {
+            el.className += " responsive";
+        } else {
+            el.className = "mainComunica";
+        }
+    }
+
+    function showTab(index) {
+        let tabs = document.querySelectorAll(".tab");
+        let contents = document.querySelectorAll(".content");
+        tabs.forEach(tab => tab.classList.remove("active"));
+        contents.forEach(content => content.classList.remove("active"));
+        tabs[index]?.classList.add("active");
+        contents[index]?.classList.add("active");
+    }
+    
+    function setStylesModal_XXV() {
+        /* estilos dinamicos */
+        let mycss = document.createElement('style');
+        let cssStyle = [];
+        $('.Modal_XXV').each(function(idx,item) {
+            cssStyle.push(`#plantilla_2025 #${item.id}:target{opacity: 1; pointer-events: auto; display: flex;}`)
+            cssStyle.push(`body:has(#plantilla_2025 #${item.id}:target) .ic-app-nav-toggle-and-crumbs {z-index: 0 !important;}`);
+        })
+        mycss.id = 'css_Modal_XXV';
+        mycss.innerHTML = cssStyle.join(' ');
+        document.body.append(mycss);
+    }
+    // ---------
+
+    function validate_mobile_elements() {
+            if(isMobileUserAgent || isMobileScreen){
+            $('#plantilla_2025 .show_only_web').remove();
+            $('#pantalla').html('Mobile')
+        } else {
+            $('#plantilla_2025 .show_only_mob').remove();
+            $('#pantalla').html('Web')
+        }
+    }
+    function crearVariablesIniciales() {
+        if( localStorage.getItem(local_item_avance) == null ){
+            const myAvanceStorage = {
+                "avatar_canvas_student_id": String(studentID),
+                "avatar_canvas_course_id": String(courseID),
+                "avatar_avatar": 'unique',
+                "avatar_unidad_1": 0,
+                "avatar_unidad_2": 0,
+                "avatar_unidad_3": 0,
+                "avatar_unidad_4": 0,
+                "avatar_creation_user": String(studentID),
+                "avatar_creation_date": ((new Date()).toISOString()),
+                "avatar_user_update": String(studentID),
+                "avatar_date_update": ((new Date()).toISOString())
+            };
+            localStorage.setItem(local_item_avance, JSON.stringify(myAvanceStorage));
+        } 
+
+        if( localStorage.getItem(local_item_avance_events) == null ){
+            const myAvanceStorageEvents = {
+                "avatar_unidad_1": {},
+                "avatar_unidad_2": {},
+                "avatar_unidad_3": {},
+                "avatar_unidad_4": {}
+            };
+            localStorage.setItem(local_item_avance_events, JSON.stringify(myAvanceStorageEvents));
+        }
+    }
+    function avance_get_info(){
+        if(document.body.querySelector('#plantilla_2025') != null){
+            const myHeaders = new Headers();
+                    myHeaders.append("X-Partner-Key", xPatherK);
+            const requestOptions = { method: "GET", headers: myHeaders };
+                    
+            fetch(`${urlAvanceApi}/getInfoAvatar/${studentID}`, requestOptions)
+            .then((response) => response.json())
+            .then((result) => {
+                let objExist = false;
+                if(result.length > 0){
+                    let dataObj = result.find(item => item.avatar_canvas_course_id == courseID);
+                    if (dataObj){
+                        objExist = true;
+                        dataObj.avatar_canvas_student_id = String(studentID);
+                        dataObj.avatar_canvas_course_id  = String(courseID);
+                        localStorage.setItem(local_item_avance, JSON.stringify(dataObj));
+                    }
+                } 
+                if(!objExist){
+                    avance_create_info();
+                }
+            }).catch((error) => console.error(error));                
+        }
+    }
+    function avance_create_info(){
+        if(document.body.querySelector('#plantilla_2025') != null){
+            const myHeaders = new Headers();
+                    myHeaders.append("X-Partner-Key", xPatherK);
+                    myHeaders.append("Content-Type", "application/json");
+
+            let newObj = {
+                "avatar_canvas_student_id": String(studentID),
+                "avatar_canvas_course_id": String(courseID),
+                "avatar_avatar": 'unique',
+                "avatar_unidad_1": 0,
+                "avatar_unidad_2": 0,
+                "avatar_unidad_3": 0,
+                "avatar_unidad_4": 0,
+                "avatar_creation_user": String(studentID),
+                "avatar_creation_date": ((new Date()).toISOString()),
+                "avatar_user_update": String(studentID),
+                "avatar_date_update": ((new Date()).toISOString())
+            };
+
+            const requestOptions = { method: "POST", headers: myHeaders, body: JSON.stringify(newObj) };
+                    
+            fetch(`${urlAvanceApi}/newStudentAvatar`, requestOptions)
+            .then((response) => response.json())
+            .then((result) => {
+                if (!isNaN(result)) {
+                    newObj.avatar_Id = result;
+                    localStorage.setItem(local_item_avance, JSON.stringify(newObj));
+                }
+            }).catch((error) => console.error(error));                
+        }
+    }
+    function avance_show_info() {
+        let myAvance = JSON.parse(localStorage.getItem(local_item_avance));
+        let myAvanceStorage = JSON.parse(localStorage.getItem(local_item_avance_events));
+        
+        if(myAvanceStorage){
+            Object.keys(myAvanceStorage).forEach(key => {
+                let newVal = Object.values(myAvanceStorage[key]).reduce((acum, act) => {
+                        return (act.event == "click" || (act.event == "evaluation" && act.status == "complete")) ? acum += parseInt(act.val) : acum;
+                    }, 0);
+
+                let maxValue  = Math.max(newVal, myAvance[key]);
+                myAvance[key] = maxValue;
+                // console.log('avance: key:', key, '| maxValue: ', maxValue);
+                // console.log('>>> selector_avance_2A:', $(`#plantilla_2025 .BotonUnidades .textoAvance[data-avance="${key.replace('avatar_unidad_','unidad-')}"]`))
+                $(`#plantilla_2025 .BotonUnidades .textoAvance[data-avance="${key.replace('avatar_unidad_','unidad-')}"]`).html(maxValue+'%');
+                
+                // console.log('>>> selector_avance_2B:', $(`#plantilla_2025 .btn_unidad[data-avance="${key.replace('avatar_unidad_','unidad-')}"]`))
+                // console.log('>>> selector_avance_2B:', `$('#plantilla_2025 .btn_unidad[data-avance="${key.replace('avatar_unidad_','unidad-')}"]')`)
+                $(`#plantilla_2025 .btn_unidad[data-avance="${key.replace('avatar_unidad_','unidad-')}"] span`).html(maxValue+'%');
+            });
+        }
+    }
+    function avance_update_info(){
+        if(document.body.querySelector('#plantilla_2025') != null){
+            let myAvance = JSON.parse(localStorage.getItem(local_item_avance));
+            if (myAvance != null) { myAvance.avatar_date_update = ((new Date()).toISOString()); }
+            let myAvanceStorage = JSON.parse(localStorage.getItem(local_item_avance_events));
+
+            Object.keys(myAvanceStorage).forEach(key => {
+                let newVal = Object.values(myAvanceStorage[key]).reduce((acum, act) => {
+                    return (act.event == "click" || (act.event == "evaluation" && act.status == "complete")) ? acum += parseInt(act.val) : acum;
+                }, 0);
+
+                if(myAvance[`${key}`] != null && (newVal >= myAvance[`${key}`]) ) {
+                    let maxValue = Math.max(newVal, myAvance[`${key}`]);
+                    updateOBJ = true;
+                    myAvance[`${key}`] = maxValue;
+                }
+            })
+            
+            localStorage.setItem(local_item_avance, JSON.stringify(myAvance));
+                
+            const myHeaders = new Headers();
+                    myHeaders.append("X-Partner-Key", xPatherK);
+                    myHeaders.append("Content-Type", "application/json");
+            const requestOptions = { method: "POST", headers: myHeaders, body: JSON.stringify(myAvance) };
+                    
+            fetch(`${urlAvanceApi}/updateStudentAvatar`, requestOptions)
+            .then((response) => response.text())
+            .then((result) => {
+                // Update: 1
+                console.log('actualizacion: ', result)
+            }).catch((error) => console.error(error));  
+        }
+    }
+});

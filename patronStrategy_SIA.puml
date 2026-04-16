@@ -1,0 +1,110 @@
+@startuml PatronStrategy_SIA
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+skinparam classBackgroundColor #F8F9FA
+skinparam classBorderColor #444444
+skinparam arrowColor #444444
+skinparam shadowing false
+skinparam linetype ortho
+
+title Patrón Strategy (GoF) + GRASP aplicado al SIA\nSistema de Información Académico
+
+interface ReporteEstrategia <<interface>> {
+  + generar(datos: DatosReporteDTO): byte[]
+  + obtenerTipoContenido(): String
+  + obtenerExtensionArchivo(): String
+}
+
+class ReporteController <<Client>> {
+  - reporteService: ReporteAcademicoService
+  - estrategias: Map<String, ReporteEstrategia>
+  + generarReporte(estudianteId: Long, formato: String): ResponseEntity
+}
+
+class ReporteAcademicoService <<Context>> {
+  - estudianteRepo: EstudianteRepository
+  - calificacionRepo: CalificacionRepository
+  + generarReporte(estudianteId: Long, estrategia: ReporteEstrategia): byte[]
+}
+
+class ReportePDFEstrategia <<ConcreteStrategy>> {
+  + generar(datos: DatosReporteDTO): byte[]
+  + obtenerTipoContenido(): String
+  + obtenerExtensionArchivo(): String
+}
+
+class ReporteExcelEstrategia <<ConcreteStrategy>> {
+  + generar(datos: DatosReporteDTO): byte[]
+  + obtenerTipoContenido(): String
+  + obtenerExtensionArchivo(): String
+}
+
+class ReporteHTMLEstrategia <<ConcreteStrategy>> {
+  + generar(datos: DatosReporteDTO): byte[]
+  + obtenerTipoContenido(): String
+  + obtenerExtensionArchivo(): String
+}
+
+class ReporteCSVEstrategia <<ConcreteStrategy>> {
+  + generar(datos: DatosReporteDTO): byte[]
+  + obtenerTipoContenido(): String
+  + obtenerExtensionArchivo(): String
+}
+
+class DatosReporteDTO <<DTO>> {
+  - nombreEstudiante: String
+  - promedio: Double
+  - calificaciones: List<Calificacion>
+}
+
+class Estudiante <<Domain>> {
+  - id: Long
+  - nombreCompleto: String
+  - calificaciones: List<Calificacion>
+  + calcularPromedio(): Double
+}
+
+ReporteController ..> ReporteAcademicoService : usa
+ReporteController ..> ReporteEstrategia : selecciona
+ReporteAcademicoService ..> ReporteEstrategia : delega
+ReporteAcademicoService ..> DatosReporteDTO : construye
+ReporteAcademicoService ..> Estudiante : consulta
+
+ReportePDFEstrategia   ..|> ReporteEstrategia : implements
+ReporteExcelEstrategia ..|> ReporteEstrategia : implements
+ReporteHTMLEstrategia  ..|> ReporteEstrategia : implements
+ReporteCSVEstrategia   ..|> ReporteEstrategia : implements
+
+note right of ReportePDFEstrategia
+  Librería: iText 7
+  MIME: application/pdf
+  Ext: .pdf
+end note
+
+note right of ReporteExcelEstrategia
+  Librería: Apache POI
+  MIME: application/vnd.ms-excel
+  Ext: .xlsx
+end note
+
+note right of ReporteHTMLEstrategia
+  Librería: Thymeleaf
+  MIME: text/html
+  Ext: .html
+end note
+
+note right of ReporteCSVEstrategia
+  Librería: OpenCSV
+  MIME: text/csv
+  Ext: .csv
+end note
+
+note bottom of Estudiante
+  GRASP - Information Expert:
+  calcularPromedio() vive aquí
+  porque Estudiante posee
+  las calificaciones
+end note
+
+@enduml
