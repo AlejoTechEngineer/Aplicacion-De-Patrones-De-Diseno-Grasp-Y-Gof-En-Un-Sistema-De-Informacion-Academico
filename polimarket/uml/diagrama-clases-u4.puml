@@ -1,0 +1,119 @@
+@startuml PoliMarket_Clases_U4
+skinparam classAttributeIconSize 0
+skinparam classFontSize 11
+skinparam classBackgroundColor #FAFAFA
+skinparam classBorderColor #555555
+skinparam arrowColor #333333
+skinparam shadowing false
+skinparam linetype ortho
+
+' === SINGLETON ===
+class DB <<Singleton>> {
+  - static instancia : DB
+  + vendedores : List
+  + productos : List
+  + ventas : List
+  + entregas : List
+  - DB()
+  + static getInstance() : DB
+}
+
+' === STRATEGY ===
+interface EstrategiaCalculo <<Strategy>> {
+  + calcular(productos: List) : double
+}
+class EstandarStrategy implements EstrategiaCalculo {
+  + calcular(productos: List) : double
+}
+class DescuentoStrategy implements EstrategiaCalculo {
+  + calcular(productos: List) : double
+}
+
+' === OBSERVER ===
+interface InventarioObserver <<Observer>> {
+  + actualizar(productoId: String, stock: int) : void
+}
+class ComponenteInventario <<Subject>> {
+  - observadores : List<InventarioObserver>
+  + agregarObservador(obs: InventarioObserver) : void
+  + notificarObservadores(productoId: String, stock: int) : void
+  + verificarDisponibilidad(productoId: String) : int
+  + registrarEntrada(productoId: String, cantidad: int) : void
+  + registrarSalida(productoId: String, cantidad: int) : void
+}
+class ComponenteReabastecimiento implements InventarioObserver {
+  + actualizar(productoId: String, stock: int) : void
+  + solicitarReabastecimiento(productoId: String) : void
+}
+
+' === FACTORY METHOD ===
+abstract class EntregaBase <<FactoryMethod>> {
+  # id : String
+  # ventaId : String
+  # estado : String
+  + registrarEntrega() : void
+  + confirmarEntrega() : void
+}
+class EntregaDomicilio extends EntregaBase {
+  - direccion : String
+}
+class EntregaExpress extends EntregaBase {
+  - tiempoMaximo : int
+}
+class EntregaFactory {
+  + static crearEntrega(tipo: String, ventaId: String) : EntregaBase
+}
+
+' === FACADE ===
+class VentaFacade <<Facade>> {
+  - autorizacion : ComponenteAutorizacion
+  - inventario : ComponenteInventario
+  - estrategia : EstrategiaCalculo
+  + registrarVenta(vendedorId: String, clienteId: String, productos: List) : Venta
+}
+
+class ComponenteAutorizacion {
+  + autorizarVendedor(vendedorId: String) : boolean
+  + estaAutorizado(vendedorId: String) : boolean
+  + revocarAutorizacion(vendedorId: String) : void
+}
+class Vendedor {
+  - id : String
+  - nombre : String
+  - autorizado : boolean
+}
+class Cliente {
+  - id : String
+  - nombre : String
+  - email : String
+}
+class Venta {
+  - id : String
+  - total : double
+  - estado : String
+}
+class Producto {
+  - id : String
+  - stock : int
+  - precio : double
+}
+class Proveedor {
+  - id : String
+  - nombre : String
+}
+
+' RELACIONES
+DB --> Vendedor
+DB --> Producto
+DB --> Venta
+ComponenteAutorizacion --> DB
+ComponenteInventario --> DB
+VentaFacade --> ComponenteAutorizacion
+VentaFacade --> ComponenteInventario
+VentaFacade --> EstrategiaCalculo
+VentaFacade --> Venta
+ComponenteInventario "1" --> "0..*" InventarioObserver : notifica >
+EntregaFactory ..> EntregaBase : <<crea>>
+ComponenteAutorizacion "1" --> "0..*" Vendedor : autoriza >
+
+@enduml

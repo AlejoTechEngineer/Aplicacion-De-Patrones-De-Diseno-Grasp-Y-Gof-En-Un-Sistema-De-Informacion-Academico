@@ -1,80 +1,69 @@
-// ComponenteRegistroVentas — Ventas
-// RF2: Registrar una venta con cliente y productos
-// RF3: Verificar disponibilidad en bodega antes de vender
+// components/ComponenteRegistroVentas.js — usa Patrón Strategy
+// La estrategia de cálculo se inyecta, permitiendo cambiarla
+// sin modificar este componente (principio Open/Closed).
+const logger       = require('../utils/logger');
+const productoRepo = require('../repositories/ProductoRepository');
+const ventaRepo    = require('../repositories/VentaRepository');
+const db           = require('../db');
+const { EstandarStrategy } = require('./strategies/EstrategiaCalculo');
 
-const db = require('../db');
-const ComponenteAutorizacion = require('./ComponenteAutorizacion');
-const ComponenteInventario = require('./ComponenteInventario');
+class ComponenteRegistroVentas {
+  constructor(estrategia = new EstandarStrategy()) {
+    this.estrategia = estrategia;
+  }
 
-const ComponenteRegistroVentas = {
+  setEstrategia(estrategia) {
+    this.estrategia = estrategia;
+    logger.info(`[Ventas] Estrategia cambiada a: ${estrategia.constructor.name}`);
+  }
 
-  // RF2: Registrar una venta
+  calcularTotal(productos) {
+    return this.estrategia.calcular(productos);
+  }
+
   registrarVenta(vendedorId, clienteId, productosIds) {
-    // Verificar que el vendedor esté autorizado
-    if (!ComponenteAutorizacion.estaAutorizado(vendedorId)) {
-      return { ok: false, mensaje: 'El vendedor no está autorizado para realizar ventas.' };
-    }
+    const productos = productosIds.map(id => productoRepo.findById(id)).filter(Boolean);
+    if (productos.length === 0) return { ok: false, mensaje: 'Ningún producto válido.' };
 
-    const cliente = db.clientes.find(c => c.id === clienteId);
-    if (!cliente) {
-      return { ok: false, mensaje: `Cliente ${clienteId} no encontrado.` };
-    }
+    const total = this.calcularTotal(productos);
 
-    // RF3: Verificar disponibilidad de cada producto en bodega
-    const productosVenta = [];
-    for (const pid of productosIds) {
-      const disponibilidad = ComponenteInventario.verificarDisponibilidad(pid);
-      if (!disponibilidad.ok) {
-        return { ok: false, mensaje: disponibilidad.mensaje };
-      }
-      productosVenta.push(disponibilidad.producto);
-    }
-
-    // Calcular total
-    const total = productosVenta.reduce((sum, p) => sum + p.precio, 0);
-
-    // Crear venta
     const venta = {
-      id: `VTA${Date.now()}`,
-      fecha: new Date().toISOString(),
+      id:          `VNT-${Date.now()}`,
       vendedorId,
       clienteId,
-      productos: productosVenta.map(p => p.id),
+      productosIds,
       total,
-      estado: 'pendiente',
+      estado:      'pendiente',
+      fecha:       new Date().toISOString(),
     };
 
-    // Descontar stock de cada producto
-    for (const p of productosVenta) {
-      ComponenteInventario.registrarSalida(p.id, 1);
-    }
+    ventaRepo.save(venta);
+    return { ok: true, mensaje: 'Venta registrada.', venta };
+  }
 
-    db.ventas.push(venta);
-    return { ok: true, mensaje: 'Venta registrada exitosamente.', venta };
-  },
+  calcularTotalVenta(ventaId) {
+    const venta = ventaRepo.findById(ventaId);
+    if (!venta) return { ok: false, mensaje: 'Venta no encontrada.' };
+    return { ok: true, total: venta.total };
+  }
 
-  // Obtener detalle de una venta
   getDetalle(ventaId) {
-    const venta = db.ventas.find(v => v.id === ventaId);
+    const venta = ventaRepo.findById(ventaId);
     if (!venta) return { ok: false, mensaje: 'Venta no encontrada.' };
     return { ok: true, venta };
-  },
+  }
 
-  // Listar todas las ventas
   listarVentas() {
-    return { ok: true, ventas: db.ventas };
-  },
+    return { ok: true, ventas: ventaRepo.findAll() };
+  }
 
-  // Listar clientes disponibles
   listarClientes() {
     return { ok: true, clientes: db.clientes };
-  },
+  }
 
-  // Listar productos disponibles
   listarProductosDisponibles() {
-    const disponibles = db.productos.filter(p => p.stock > 0);
-    return { ok: true, productos: disponibles };
-  },
-};
+    return { ok: true, productos: productoRepo.findAvailable() };
+  }
+}
 
-module.exports = ComponenteRegistroVentas;
+module.exports = new ComponenteRegistroVentas();
