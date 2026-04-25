@@ -1,6 +1,6 @@
 # Guía de Inicio Rápido — PoliMarket
 
-Instrucciones para clonar, instalar y ejecutar el proyecto en entorno local.
+Ejecuta el sistema completo en menos de 5 minutos.
 
 ---
 

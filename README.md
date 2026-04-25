@@ -7,7 +7,7 @@
 > Implementación de patrones de diseño GoF (Gang of Four) sobre una arquitectura de componentes Node.js.
 > Proyecto académico — Maestría en Arquitectura de Software | Unidades 2, 3 y 4.
 
-**¿Quieres ejecutarlo ya?** → [Guía de inicio rápido (QUICKSTART.md)](QUICKSTART.md)
+**Ejecuta el sistema completo en menos de 5 minutos.** → [Guía de inicio rápido (QUICKSTART.md)](QUICKSTART.md)
 
 ---
 
