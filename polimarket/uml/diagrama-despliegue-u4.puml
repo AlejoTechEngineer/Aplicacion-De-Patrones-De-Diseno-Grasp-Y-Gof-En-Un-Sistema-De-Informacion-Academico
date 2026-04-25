@@ -1,0 +1,25 @@
+@startuml PoliMarket_Despliegue
+skinparam shadowing false
+skinparam componentStyle uml2
+
+node "Equipo local del desarrollador" {
+  artifact "Cliente Web\nNavegador" as Web
+  artifact "Cliente CLI\nreadline" as CLI
+
+  node "Servidor Node.js\nPuerto 3000" {
+    component "API REST\nExpress" as API
+    component "VentaFacade" as Facade
+    component "Componentes de negocio" as Components
+    component "Repositorios" as Repos
+    database "DB en memoria\nSingleton" as DB
+  }
+}
+
+Web --> API : HTTP localhost:3000
+CLI --> Components : llamadas directas
+API --> Facade
+Facade --> Components
+Components --> Repos
+Repos --> DB
+
+@enduml
