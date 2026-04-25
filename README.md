@@ -428,6 +428,26 @@ npm run start:cli
 
 Inicia el menú interactivo de línea de comandos.
 
+### Endpoints navegables sin Postman
+
+Estos endpoints GET abren directamente en el navegador:
+
+```
+┌───────────────────────────────────────────┬───────────────────────────────┐
+│                    URL                    │          Qué muestra          │
+├───────────────────────────────────────────┼───────────────────────────────┤
+│ http://localhost:3000/bodega/inventario   │ Todos los productos con stock │
+├───────────────────────────────────────────┼───────────────────────────────┤
+│ http://localhost:3000/ventas              │ Ventas registradas            │
+├───────────────────────────────────────────┼───────────────────────────────┤
+│ http://localhost:3000/bodega/stock-bajo   │ Productos con stock bajo      │
+├───────────────────────────────────────────┼───────────────────────────────┤
+│ http://localhost:3000/entregas            │ Entregas registradas          │
+├───────────────────────────────────────────┼───────────────────────────────┤
+│ http://localhost:3000/entregas/pendientes │ Ventas pendientes de entrega  │
+└───────────────────────────────────────────┴───────────────────────────────┘
+```
+
 ### Controlar el nivel de logs
 
 ```bash
