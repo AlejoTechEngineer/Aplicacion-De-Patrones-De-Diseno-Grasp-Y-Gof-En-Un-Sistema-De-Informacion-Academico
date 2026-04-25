@@ -11,23 +11,45 @@
 
 ---
 
+## ¿Qué demuestra este proyecto?
+
+- Aplicación real de **5 patrones GoF** (Singleton, Observer, Strategy, Factory Method, Facade)
+- **Arquitectura por capas** desacoplada: Clientes → Facade → Componentes → Repositorios → DB
+- **Pruebas automatizadas** con Jest — 31 tests organizados por patrón de diseño
+- **Repository Pattern** — capa de acceso a datos intercambiable sin tocar la lógica de negocio
+- **Logger estructurado** (winston) con niveles semánticos y configuración por entorno
+- **Dos clientes** sobre la misma arquitectura: API REST (Express) y CLI interactivo
+
+---
+
+## Vista del sistema
+
+![UI](./polimarket/public/screenshot.png)
+
+> Para agregar la captura: ejecuta el proyecto, abre `http://localhost:3000/index.html`,
+> toma un screenshot y guárdalo como `polimarket/public/screenshot.png`.
+
+---
+
 ## Tabla de Contenidos
 
-1. [Descripción del Proyecto](#descripción-del-proyecto)
-2. [Arquitectura](#arquitectura)
-3. [Patrones GoF Implementados](#patrones-gof-implementados)
-4. [Repository Pattern](#repository-pattern)
-5. [Logger Centralizado](#logger-centralizado)
-6. [Estructura del Proyecto](#estructura-del-proyecto)
-7. [Prerrequisitos](#prerrequisitos)
-8. [Instalación](#instalación)
-9. [Ejecución](#ejecución)
-10. [API REST — Referencia Completa](#api-rest--referencia-completa)
-11. [Cliente CLI](#cliente-cli)
-12. [Datos de Prueba (Seeds)](#datos-de-prueba-seeds)
-13. [Testing](#testing)
-14. [Diagramas UML](#diagramas-uml)
-15. [Tecnologías](#tecnologías)
+1. [¿Qué demuestra este proyecto?](#qué-demuestra-este-proyecto)
+2. [Vista del sistema](#vista-del-sistema)
+3. [Descripción del Proyecto](#descripción-del-proyecto)
+4. [Arquitectura](#arquitectura)
+5. [Patrones GoF Implementados](#patrones-gof-implementados)
+6. [Repository Pattern](#repository-pattern)
+7. [Logger Centralizado](#logger-centralizado)
+8. [Estructura del Proyecto](#estructura-del-proyecto)
+9. [Prerrequisitos](#prerrequisitos)
+10. [Instalación](#instalación)
+11. [Ejecución](#ejecución)
+12. [API REST — Referencia Completa](#api-rest--referencia-completa)
+13. [Cliente CLI](#cliente-cli)
+14. [Datos de Prueba (Seeds)](#datos-de-prueba-seeds)
+15. [Testing](#testing)
+16. [Diagramas UML](#diagramas-uml)
+17. [Tecnologías](#tecnologías)
 16. [Autor](#autor)
 
 ---
