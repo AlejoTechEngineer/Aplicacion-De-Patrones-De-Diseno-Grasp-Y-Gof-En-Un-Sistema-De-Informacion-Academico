@@ -362,7 +362,8 @@ polimarket/
 │   ├── diagrama-clases.puml        # Diagrama de clases — Unidad 2
 │   ├── diagrama-componentes.puml   # Diagrama de componentes — Unidad 2
 │   ├── diagrama-clases-u4.puml     # Diagrama de clases con patrones GoF — Unidad 4
-│   └── diagrama-componentes-u4.puml# Diagrama de componentes con patrones — Unidad 4
+│   ├── diagrama-componentes-u4.puml# Diagrama de componentes con patrones — Unidad 4
+│   └── diagrama-despliegue-u4.puml # Diagrama de despliegue — ejecución local del sistema
 │
 ├── public/
 │   └── index.html                  # Interfaz web estática
@@ -759,6 +760,7 @@ Los diagramas están en la carpeta `uml/` en formato **PlantUML** (`.puml`).
 | `diagrama-componentes.puml` | Diagrama de componentes base — Unidad 2 |
 | `diagrama-clases-u4.puml` | Diagrama de clases con los 5 patrones GoF anotados |
 | `diagrama-componentes-u4.puml` | Diagrama de componentes con capas Facade, Observer, Factory, Strategy, Singleton |
+| `diagrama-despliegue-u4.puml` | Diagrama de despliegue — nodo local, servidor Node.js puerto 3000, clientes Web y CLI, capas internas |
 
 ---
 
