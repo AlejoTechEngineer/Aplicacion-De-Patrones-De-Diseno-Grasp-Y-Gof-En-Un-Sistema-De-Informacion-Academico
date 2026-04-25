@@ -1,73 +1,64 @@
-// ComponenteReabastecimiento — Bodega + Proveedores
-// RF4: Solicitar reabastecimiento cuando el stock es bajo
-
-const db = require('../db');
-const ComponenteInventario = require('./ComponenteInventario');
+// components/ComponenteReabastecimiento.js — Patrón Observer (Observer concreto)
+// Implementa la interfaz Observer: reacciona automáticamente cuando
+// ComponenteInventario notifica un nivel bajo de stock.
+const logger       = require('../utils/logger');
+const productoRepo = require('../repositories/ProductoRepository');
+const pedidoRepo   = require('../repositories/PedidoRepository');
+const db           = require('../db');
 
 const STOCK_MINIMO = 3;
 
-const ComponenteReabastecimiento = {
+class ComponenteReabastecimiento {
+  // Método requerido por el contrato Observer
+  actualizar(productoId, stock) {
+    logger.info(`[Reabastecimiento] Notificación recibida — Producto: ${productoId}, Stock: ${stock}`);
+    return this.solicitarReabastecimiento(productoId, 'PROV-1', 20);
+  }
 
-  // RF4: Solicitar reabastecimiento a proveedor
   solicitarReabastecimiento(productoId, proveedorId, cantidad) {
-    const producto = db.productos.find(p => p.id === productoId);
-    if (!producto) {
-      return { ok: false, mensaje: `Producto ${productoId} no encontrado.` };
-    }
-
+    const producto  = productoRepo.findById(productoId);
     const proveedor = db.proveedores.find(p => p.id === proveedorId);
-    if (!proveedor) {
-      return { ok: false, mensaje: `Proveedor ${proveedorId} no encontrado.` };
-    }
 
-    if (producto.stock >= STOCK_MINIMO) {
-      return {
-        ok: false,
-        mensaje: `Stock de ${producto.nombre} suficiente (${producto.stock} unidades). No se requiere reabastecimiento.`,
-      };
-    }
+    if (!producto)  return { ok: false, mensaje: 'Producto no encontrado.' };
+    if (!proveedor) return { ok: false, mensaje: 'Proveedor no encontrado.' };
 
-    // Registrar el pedido
     const pedido = {
-      id: `PED${Date.now()}`,
+      id:          `PED-${Date.now()}`,
       productoId,
       proveedorId,
       cantidad,
-      fecha: new Date().toISOString(),
-      estado: 'solicitado',
+      estado:      'solicitado',
+      fecha:       new Date().toISOString(),
     };
-    db.pedidos.push(pedido);
 
-    // Simular recepción inmediata del pedido
-    ComponenteInventario.registrarEntrada(productoId, cantidad);
-    pedido.estado = 'recibido';
+    pedidoRepo.save(pedido);
 
-    return {
-      ok: true,
-      mensaje: `Reabastecimiento de ${producto.nombre} solicitado a ${proveedor.nombre}. Nuevo stock: ${producto.stock}`,
-      pedido,
-    };
-  },
+    logger.info(`[Reabastecimiento] Pedido generado: ${pedido.id} — ${cantidad} unidades de ${producto.nombre}`);
+    return { ok: true, mensaje: 'Reabastecimiento solicitado.', pedido };
+  }
 
-  // Verificar productos con stock bajo
   verificarStockBajo() {
-    const bajoStock = db.productos.filter(p => p.stock < STOCK_MINIMO);
+    const bajoStock = productoRepo.findBelowStock(STOCK_MINIMO);
     return {
       ok: true,
-      mensaje: bajoStock.length === 0 ? 'Todos los productos tienen stock suficiente.' : `${bajoStock.length} producto(s) con stock bajo.`,
+      mensaje: bajoStock.length === 0
+        ? 'Todos los productos tienen stock suficiente.'
+        : `${bajoStock.length} producto(s) con stock bajo.`,
       productos: bajoStock,
     };
-  },
+  }
 
-  // Listar proveedores
+  consultarProveedores() {
+    return { ok: true, proveedores: db.proveedores };
+  }
+
   listarProveedores() {
     return { ok: true, proveedores: db.proveedores };
-  },
+  }
 
-  // Listar pedidos realizados
   listarPedidos() {
-    return { ok: true, pedidos: db.pedidos };
-  },
-};
+    return { ok: true, pedidos: pedidoRepo.findAll() };
+  }
+}
 
-module.exports = ComponenteReabastecimiento;
+module.exports = new ComponenteReabastecimiento();

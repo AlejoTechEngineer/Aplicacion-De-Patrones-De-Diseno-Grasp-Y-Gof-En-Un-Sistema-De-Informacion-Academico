@@ -1,58 +1,60 @@
-// ComponenteInventario — Bodega
-// RF3: Verificar disponibilidad de productos
-// RF4: Registrar entradas y salidas de bodega
+// components/ComponenteInventario.js — Patrón Observer (Subject)
+// ComponenteInventario actúa como Subject: mantiene una lista de observers
+// y los notifica automáticamente cuando el stock cae por debajo del mínimo.
+const logger       = require('../utils/logger');
+const productoRepo = require('../repositories/ProductoRepository');
 
-const db = require('../db');
+const STOCK_MINIMO = 3;
 
-const ComponenteInventario = {
+class ComponenteInventario {
+  constructor() {
+    this._observadores = [];
+  }
 
-  // RF3: Verificar disponibilidad de un producto
+  agregarObservador(observer) {
+    this._observadores.push(observer);
+    logger.info(`[Inventario] Observer registrado: ${observer.constructor.name}`);
+  }
+
+  removerObservador(observer) {
+    this._observadores = this._observadores.filter(o => o !== observer);
+  }
+
+  notificarObservadores(productoId, stock) {
+    this._observadores.forEach(obs => obs.actualizar(productoId, stock));
+  }
+
   verificarDisponibilidad(productoId) {
-    const producto = db.productos.find(p => p.id === productoId);
-    if (!producto) {
-      return { ok: false, mensaje: `Producto ${productoId} no encontrado.` };
-    }
-    if (producto.stock === 0) {
-      return { ok: false, mensaje: `Producto ${producto.nombre} sin stock disponible.` };
-    }
-    return { ok: true, mensaje: `Stock disponible: ${producto.stock}`, producto };
-  },
+    const producto = productoRepo.findById(productoId);
+    if (!producto) return { ok: false, mensaje: 'Producto no encontrado.' };
+    return { ok: producto.stock > 0, stock: producto.stock, producto };
+  }
 
-  // RF4: Registrar entrada de productos a bodega
   registrarEntrada(productoId, cantidad) {
-    const producto = db.productos.find(p => p.id === productoId);
-    if (!producto) {
-      return { ok: false, mensaje: `Producto ${productoId} no encontrado.` };
-    }
+    const producto = productoRepo.findById(productoId);
+    if (!producto) return { ok: false, mensaje: 'Producto no encontrado.' };
     producto.stock += cantidad;
-    return {
-      ok: true,
-      mensaje: `Entrada registrada. Stock actual de ${producto.nombre}: ${producto.stock}`,
-      producto,
-    };
-  },
+    return { ok: true, mensaje: `Entrada registrada. Stock actual: ${producto.stock}`, producto };
+  }
 
-  // Registrar salida de productos de bodega
   registrarSalida(productoId, cantidad) {
-    const producto = db.productos.find(p => p.id === productoId);
-    if (!producto) {
-      return { ok: false, mensaje: `Producto ${productoId} no encontrado.` };
-    }
-    if (producto.stock < cantidad) {
-      return { ok: false, mensaje: `Stock insuficiente para ${producto.nombre}.` };
-    }
+    const producto = productoRepo.findById(productoId);
+    if (!producto) return { ok: false, mensaje: 'Producto no encontrado.' };
+    if (producto.stock < cantidad) return { ok: false, mensaje: 'Stock insuficiente.' };
+
     producto.stock -= cantidad;
-    return {
-      ok: true,
-      mensaje: `Salida registrada. Stock actual de ${producto.nombre}: ${producto.stock}`,
-      producto,
-    };
-  },
 
-  // Listar todos los productos con su stock
+    if (producto.stock <= STOCK_MINIMO) {
+      logger.warn(`[Inventario] Stock bajo detectado en ${productoId}: ${producto.stock} unidades`);
+      this.notificarObservadores(productoId, producto.stock);
+    }
+
+    return { ok: true, mensaje: `Salida registrada. Stock actual: ${producto.stock}`, producto };
+  }
+
   listarInventario() {
-    return { ok: true, productos: db.productos };
-  },
-};
+    return { ok: true, productos: productoRepo.findAll() };
+  }
+}
 
-module.exports = ComponenteInventario;
+module.exports = new ComponenteInventario();

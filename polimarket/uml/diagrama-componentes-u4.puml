@@ -1,0 +1,71 @@
+@startuml PoliMarket_Componentes_U4
+skinparam componentStyle uml2
+skinparam backgroundColor #FFFFFF
+skinparam componentBackgroundColor #FAFAFA
+skinparam componentBorderColor #555555
+skinparam arrowColor #333333
+skinparam shadowing false
+skinparam linetype ortho
+
+package "Clientes" {
+  [Cliente Web (API REST)] as CW
+  [Cliente CLI] as CC
+}
+
+package "Facade Layer" {
+  [VentaFacade] as VF
+  note right of VF : <<Facade>>\nOculta complejidad\nde registro de venta
+}
+
+package "Recursos Humanos" {
+  [ComponenteAutorizacion] as CA
+  [ComponenteGestionVendedores] as CGV
+}
+
+package "Ventas" {
+  [EstandarStrategy] as ES
+  [DescuentoStrategy] as DS
+  note right of ES : <<Strategy>>\nAlgoritmos de\ncalculo de total
+}
+
+package "Bodega" {
+  [ComponenteInventario <<Subject>>] as CI
+  [ComponenteReabastecimiento <<Observer>>] as CR
+  note right of CR : <<Observer>>\nReacciona a stock bajo
+}
+
+package "Proveedores" {
+  [ComponenteGestionProveedores] as CGP
+  [ComponentePedidos] as CP
+}
+
+package "Entregas" {
+  [EntregaFactory] as EF
+  [ComponenteGestionEntregas] as CGE
+  [ComponenteLogistica] as CL
+  note right of EF : <<Factory Method>>\nCrea tipo de entrega\nsegun contexto
+}
+
+package "Infraestructura" {
+  [DB <<Singleton>>] as DB
+  note right of DB : <<Singleton>>\nInstancia unica\nde base de datos
+}
+
+CW --> VF
+CC --> VF
+VF --> CA
+VF --> CI
+VF --> ES
+VF --> DS
+CA --> CGV
+CI --> CR : <<notifica stock bajo>>
+CR --> CP
+CGP --> CI : <<registra entrada>>
+EF --> CGE
+CGE --> CL
+CL --> CI : <<registra salida>>
+CA --> DB
+CI --> DB
+CGE --> DB
+
+@enduml

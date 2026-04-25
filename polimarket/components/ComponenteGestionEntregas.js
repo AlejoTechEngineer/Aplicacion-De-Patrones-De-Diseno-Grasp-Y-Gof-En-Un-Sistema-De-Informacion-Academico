@@ -1,67 +1,53 @@
-// ComponenteGestionEntregas — Entregas
-// RF5: Registrar entrega y descontar de bodega
+// components/ComponenteGestionEntregas.js — usa Patrón Factory Method
+// Delega la creación de entregas a EntregaFactory, sin instanciar
+// directamente las clases concretas de entrega.
+const ventaRepo    = require('../repositories/VentaRepository');
+const entregaRepo  = require('../repositories/EntregaRepository');
+const db           = require('../db');
+const EntregaFactory = require('./EntregaFactory');
 
-const db = require('../db');
-const ComponenteInventario = require('./ComponenteInventario');
+class ComponenteGestionEntregas {
+  // tipo: 'domicilio' | 'express'
+  registrarEntrega(ventaId, tipo = 'domicilio', opciones = {}) {
+    const venta = ventaRepo.findById(ventaId);
+    if (!venta) return { ok: false, mensaje: 'Venta no encontrada.' };
 
-const ComponenteGestionEntregas = {
-
-  // RF5: Registrar una entrega
-  registrarEntrega(ventaId) {
-    const venta = db.ventas.find(v => v.id === ventaId);
-    if (!venta) {
-      return { ok: false, mensaje: `Venta ${ventaId} no encontrada.` };
-    }
     if (venta.estado === 'entregado') {
       return { ok: false, mensaje: `La venta ${ventaId} ya fue entregada.` };
     }
 
-    const cliente = db.clientes.find(c => c.id === venta.clienteId);
-
-    const entrega = {
-      id: `ENT${Date.now()}`,
-      ventaId,
-      clienteId: venta.clienteId,
-      direccionDestino: cliente ? cliente.direccion : 'Sin dirección',
-      productos: venta.productos,
-      fecha: new Date().toISOString(),
-      estado: 'en camino',
-    };
-
-    db.entregas.push(entrega);
-    venta.estado = 'entregado';
-
-    return {
-      ok: true,
-      mensaje: `Entrega registrada para la venta ${ventaId} al cliente ${cliente?.nombre}.`,
-      entrega,
-    };
-  },
-
-  // Confirmar entrega completada
-  confirmarEntrega(entregaId) {
-    const entrega = db.entregas.find(e => e.id === entregaId);
-    if (!entrega) {
-      return { ok: false, mensaje: `Entrega ${entregaId} no encontrada.` };
+    if (tipo === 'domicilio' && !opciones.direccion) {
+      const cliente = db.clientes.find(c => c.id === venta.clienteId);
+      opciones.direccion = cliente ? cliente.direccion : 'Sin dirección';
     }
-    entrega.estado = 'entregado';
-    return { ok: true, mensaje: `Entrega ${entregaId} confirmada como entregada.`, entrega };
-  },
 
-  // Consultar pedidos pendientes de entrega
+    // Factory Method crea el tipo correcto de entrega
+    const entrega = EntregaFactory.crearEntrega(tipo, ventaId, opciones);
+    const resultado = entrega.registrarEntrega();
+
+    venta.estado = 'en despacho';
+    return resultado;
+  }
+
+  confirmarEntrega(entregaId) {
+    const entrega = entregaRepo.findById(entregaId);
+    if (!entrega) return { ok: false, mensaje: 'Entrega no encontrada.' };
+    return entrega.confirmarEntrega();
+  }
+
   consultarPedidosPendientes() {
-    const pendientes = db.ventas.filter(v => v.estado === 'pendiente');
-    return {
-      ok: true,
-      mensaje: `${pendientes.length} venta(s) pendiente(s) de entrega.`,
-      ventas: pendientes,
-    };
-  },
+    const pendientes = ventaRepo.findByEstado('pendiente');
+    return { ok: true, pendientes };
+  }
 
-  // Listar todas las entregas
   listarEntregas() {
-    return { ok: true, entregas: db.entregas };
-  },
-};
+    return { ok: true, entregas: entregaRepo.findAll() };
+  }
 
-module.exports = ComponenteGestionEntregas;
+  registrarSalidaBodega(productoId, cantidad) {
+    const ComponenteInventario = require('./ComponenteInventario');
+    return ComponenteInventario.registrarSalida(productoId, cantidad);
+  }
+}
+
+module.exports = new ComponenteGestionEntregas();

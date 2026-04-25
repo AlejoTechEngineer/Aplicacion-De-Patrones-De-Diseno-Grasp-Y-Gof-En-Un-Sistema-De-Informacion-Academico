@@ -16,6 +16,7 @@ const ComponenteRegistroVentas   = require('../../components/ComponenteRegistroV
 const ComponenteInventario       = require('../../components/ComponenteInventario');
 const ComponenteReabastecimiento = require('../../components/ComponenteReabastecimiento');
 const ComponenteGestionEntregas  = require('../../components/ComponenteGestionEntregas');
+const VentaFacade                = require('../../components/VentaFacade');
 
 // ── RF1: Autorizar vendedor ────────────────────────
 app.post('/rrhh/autorizar', (req, res) => {
@@ -79,6 +80,14 @@ app.get('/entregas/pendientes', (req, res) => {
 
 app.get('/entregas', (req, res) => {
   res.json(ComponenteGestionEntregas.listarEntregas());
+});
+
+// ── Facade: registro completo de venta ───────────
+// POST /ventas/facade — Registra venta usando el patrón Facade
+app.post('/ventas/facade', (req, res) => {
+  const { vendedorId, clienteId, productosIds } = req.body;
+  const resultado = VentaFacade.registrarVenta(vendedorId, clienteId, productosIds);
+  res.json(resultado);
 });
 
 // ── Inicio del servidor ───────────────────────────
