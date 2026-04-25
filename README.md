@@ -1,5 +1,9 @@
 # PoliMarket — Sistema de Gestión Empresarial
 
+![Node](https://img.shields.io/badge/node-%3E%3D18-green)
+![Tests](https://img.shields.io/badge/tests-31%20passing-brightgreen)
+![Status](https://img.shields.io/badge/status-ready-blue)
+
 > Implementación de patrones de diseño GoF (Gang of Four) sobre una arquitectura de componentes Node.js.
 > Proyecto académico — Maestría en Arquitectura de Software | Unidades 2, 3 y 4.
 
