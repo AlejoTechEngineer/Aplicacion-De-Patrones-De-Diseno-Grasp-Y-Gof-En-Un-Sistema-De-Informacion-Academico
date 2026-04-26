@@ -24,10 +24,7 @@
 
 ## Vista del sistema
 
-![UI](./polimarket/public/screenshot.png)
-
-> Para agregar la captura: ejecuta el proyecto, abre `http://localhost:3000/index.html`,
-> toma un screenshot y guárdalo como `polimarket/public/screenshot.png`.
+> Abre [`http://localhost:3000/index.html`](http://localhost:3000/index.html) tras ejecutar `npm run start:web` para ver la interfaz en vivo.
 
 ---
 
