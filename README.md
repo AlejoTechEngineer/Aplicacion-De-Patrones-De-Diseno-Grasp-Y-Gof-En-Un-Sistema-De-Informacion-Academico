@@ -90,38 +90,21 @@ ComponenteAutorizacion   ComponenteInventario ◄── Subject (Observer)
 
 ## Arquitectura
 
-El sistema está organizado en **capas horizontales** con responsabilidades bien delimitadas:
-
+```mermaid
+flowchart TD
+    A[components/web - Express REST API] --> B[VentaFacade.js - Patron Facade]
+    C[components/cli - CLI interactivo] --> B
+    B --> D[ComponenteRegistroVentas.js]
+    B --> E[ComponenteInventario.js]
+    B --> F[ComponenteGestionEntregas.js]
+    B --> G[ComponenteReabastecimiento.js]
+    D --> H[repositories/VentaRepository.js]
+    E --> I[repositories/ProductoRepository.js]
+    F --> J[repositories/EntregaRepository.js]
+    H & I & J --> K[(db.js - base de datos)]
+    L[EntregaFactory.js - Patron Factory] --> F
+    M[utils/logger.js - winston] --> B
 ```
-┌─────────────────────────────────────────────┐
-│              CAPA DE CLIENTES               │
-│     API REST (Express)  │  CLI (readline)   │
-├─────────────────────────────────────────────┤
-│               CAPA FACADE                   │
-│              VentaFacade                    │  ◄── Patrón Facade
-├─────────────────────────────────────────────┤
-│            CAPA DE COMPONENTES              │
-│  Autorización │ Inventario │ Ventas         │
-│  Reabastecimiento │ Entregas                │  ◄── Patrones GoF
-├─────────────────────────────────────────────┤
-│           CAPA DE REPOSITORIOS              │
-│  ProductoRepo │ VentaRepo │ EntregaRepo     │  ◄── Repository Pattern
-│  PedidoRepo   │ VendedorRepo                │
-├─────────────────────────────────────────────┤
-│           CAPA DE INFRAESTRUCTURA           │
-│              DB (Singleton)                 │  ◄── Patrón Singleton
-│         Base de datos en memoria            │
-└─────────────────────────────────────────────┘
-```
-
-### Principios de diseño aplicados
-
-- **SOLID**: Open/Closed en Strategy, Single Responsibility por componente
-- **DRY**: Logger centralizado, repositorios reutilizables
-- **KISS**: Cada componente tiene una única responsabilidad clara
-- **Separation of Concerns**: Acceso a datos en repositorios, lógica en componentes, orquestación en Facade
-
----
 
 ## Patrones GoF Implementados
 
