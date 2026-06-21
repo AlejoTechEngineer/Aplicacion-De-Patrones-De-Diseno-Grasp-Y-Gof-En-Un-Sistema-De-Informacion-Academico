@@ -1,3 +1,5 @@
+<div align="center">
+
 # PoliMarket — Sistema de Gestión Empresarial
 
 ![Node](https://img.shields.io/badge/node-%3E%3D18-green)
@@ -8,6 +10,10 @@
 > Proyecto académico — Maestría en Arquitectura de Software | Unidades 2, 3 y 4.
 
 **Ejecuta el sistema completo en menos de 5 minutos.** → [Guía de inicio rápido (QUICKSTART.md)](QUICKSTART.md)
+
+</div>
+
+---
 
 ---
 
@@ -791,3 +797,12 @@ Los diagramas están en la carpeta `uml/` en formato **PlantUML** (`.puml`).
 Maestría en Arquitectura de Software  
 Temas Avanzados de Diseño de Software — Laboratorio No. 4  
 2026
+
+---
+
+## Autor
+
+**Alejandro De Mendoza**  
+Ingeniero Informático · Especialista en IA · Especialista en Ingeniería de Software · Máster en Arquitectura de Software
+
+[![GitHub](https://img.shields.io/badge/GitHub-AlejoTechEngineer-181717?style=for-the-badge&logo=github)](https://github.com/AlejoTechEngineer)
